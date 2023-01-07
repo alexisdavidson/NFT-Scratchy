@@ -7,6 +7,9 @@ import './App.css';
 import Navbar from './Navbar';
 import Mint from './Mint'
 import Audio from './Audio'
+import Scratch from './Scratch'
+import PopupDiscord from './PopupDiscord'
+import PopupListingSoon from './PopupListingSoon'
 
 import { useState, useEffect, useRef } from 'react'
 import { ethers } from 'ethers'
@@ -27,6 +30,7 @@ function App() {
   const [price, setPrice] = useState(0.01)
   const [nft, setNFT] = useState({})
   const [menu, setMenu] = useState(0)
+  const [popup, setPopup] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [amountMinted, setAmountMinted] = useState(0)
   const [provider, setProvider] = useState({})
@@ -50,6 +54,17 @@ function App() {
     console.log("buttonLinkOnClick: " + elementId)
     var ex = document.getElementById(elementId);
     ex.click();
+  }
+
+  const closePopup = () => {
+    setPopup(0)
+  }
+  const togglePopup = (popupId) => {
+    console.log("togglePopup", popupId)
+
+    if (popup == popupId)
+      setPopup(0)
+    else setPopup(popupId)
   }
 
   const changeQuantity = (direction) => {
@@ -143,13 +158,34 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App" id="wrapper">
-        <div className="m-0 p-0 container-fluid d-none d-xl-block">
-          <Navbar setMenu={setMenu} menu={menu} />
+        <div className="m-0 p-0 container-fluid">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Navbar menu={0} togglePopup={togglePopup} />
+                <Audio />
+              </>
+            } />
+            <Route path="/mint" element={
+              <>
+                <Navbar menu={1} togglePopup={togglePopup} />
+                <Mint />
+              </>
+            } />
+            <Route path="/scratch" element={
+              <>
+                <Navbar menu={2} togglePopup={togglePopup} />
+                <Scratch />
+              </>
+            } />
+          </Routes>
+          
             {
-                {
-                '0': <Mint />,
-                '1': <Audio />,
-                }[menu]
+              {
+              '0': <></>,
+              '1': <PopupDiscord closePopup={closePopup} />,
+              '2': <PopupListingSoon closePopup={closePopup} />,
+              }[popup]
             }
         </div>
       </div>

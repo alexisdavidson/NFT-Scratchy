@@ -7,13 +7,7 @@ import Mint from './Mint'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const Navbar = ({ setMenu, triggerPopup }) => {
-
-    const buttonOnClick = async (elementId) => {
-        console.log("buttonLinkOnClick: " + elementId)
-        var ex = document.getElementById(elementId);
-        ex.click();
-    }
+const Navbar = ({ menu, togglePopup }) => {
 
     return (
         <Row className="navigationRow">
@@ -24,18 +18,30 @@ const Navbar = ({ setMenu, triggerPopup }) => {
                 <Row className="navigationLinksRow">
                     <Col className="navigationLinksColLeft col-6">
                         <div className="m-0 p-0">
-                            <a href="/mint" className="navbarElement">Mint</a>
+                            <a href="/mint" className="navbarElement">
+                                {menu == 1 ? (
+                                    <span className='selectedMenu'>Mint</span>
+                                ) : (
+                                    <>Mint</>
+                                )}
+                            </a>
                         </div>
                         <div className="m-0 p-0">
-                            <a href="/scratch" id="collectionLink" className="navbarElement">Scratch</a>
+                            <a href="/scratch" id="collectionLink" className="navbarElement">
+                                {menu == 2 ? (
+                                    <span className='selectedMenu'>Scratch</span>
+                                ) : (
+                                    <>Scratch</>
+                                )}
+                            </a>
                         </div>
                     </Col>
                     <Col className="navigationLinksColRight col-6">
-                        <div className="m-0 p-0">
-                            <a href="/discord" className="navbarElement">Discord?</a>
+                        <div className="m-0 p-0 popupButton" onClick={() => togglePopup('1')} >
+                            Discord?
                         </div>
                         <div className="m-0 p-0">
-                            <a href="/twitter" className="navbarElement">Twitter</a>
+                            <a href="https://twitter.com/" target="_blank" className="navbarElement">Twitter</a>
                         </div>
                     </Col>
                 </Row>
