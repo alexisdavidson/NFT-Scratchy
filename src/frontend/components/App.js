@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 import './App.css';
 import Home from './Home';
+import Navbar from './Navbar';
 
 import { useState, useEffect, useRef } from 'react'
 import { ethers } from 'ethers'
@@ -147,6 +148,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App" id="wrapper">
+        <Navbar />
         <Home web3Handler={web3Handler} account={account} 
           supplyLeft={supplyLeft} balance={balance} closeMenu={closeMenu} toggleMenu={toggleMenu} menu={menu} price={price}
           changeQuantity={changeQuantity} mintButton={mintButton} quantity={quantity} >
