@@ -4,8 +4,9 @@ import {
   Route
 } from "react-router-dom"
 import './App.css';
-import Home from './Home';
 import Navbar from './Navbar';
+import Mint from './Mint'
+import Audio from './Audio'
 
 import { useState, useEffect, useRef } from 'react'
 import { ethers } from 'ethers'
@@ -45,6 +46,12 @@ function App() {
   const accountRef = useRef();
   accountRef.current = account;
 
+  const buttonLinkOnClick = async (elementId) => {
+    console.log("buttonLinkOnClick: " + elementId)
+    var ex = document.getElementById(elementId);
+    ex.click();
+  }
+
   const changeQuantity = (direction) => {
       if (quantity + direction < 1)
           setQuantity(1)
@@ -60,18 +67,6 @@ function App() {
       console.log("Price: " + price + " wei");
       console.log("Quantity: " + quantity)
       await nft.mint(quantity, { value: toWei(price) });
-  }
-
-  const closeMenu = () => {
-      toggleMenu(0)
-  }
-
-  const toggleMenu = (menuId) => {
-      console.log("toggleMenu " + menuId)
-      if (menu == menuId)
-          setMenu(0)
-      else
-          setMenu(menuId)
   }
 
   const web3Handler = async () => {
@@ -148,11 +143,15 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App" id="wrapper">
-        <Navbar />
-        <Home web3Handler={web3Handler} account={account} 
-          supplyLeft={supplyLeft} balance={balance} closeMenu={closeMenu} toggleMenu={toggleMenu} menu={menu} price={price}
-          changeQuantity={changeQuantity} mintButton={mintButton} quantity={quantity} >
-        </Home>
+        <div className="m-0 p-0 container-fluid d-none d-xl-block">
+          <Navbar setMenu={setMenu} menu={menu} />
+            {
+                {
+                '0': <Mint />,
+                '1': <Audio />,
+                }[menu]
+            }
+        </div>
       </div>
     </BrowserRouter>
   );

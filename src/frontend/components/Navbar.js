@@ -7,8 +7,7 @@ import Mint from './Mint'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const Navbar = ({ web3Handler, account, price, supplyLeft, balance, closeMenu, 
-    toggleMenu, menu, changeQuantity, mintButton, quantity }) => {
+const Navbar = ({ setMenu, triggerPopup }) => {
 
     const buttonOnClick = async (elementId) => {
         console.log("buttonLinkOnClick: " + elementId)
