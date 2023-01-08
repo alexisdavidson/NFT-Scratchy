@@ -10,6 +10,11 @@ const Mint = ({  }) => {
     const [submenu, setSubmenu] = useState(1)
     const [subpage, setSubpage] = useState(1)
 
+
+    const nextPage = (direction) => {
+        setSubpage(subpage + direction)
+    }
+
     return (
         <Row className="m-0 p-0 mint">
             <Row className="m-0 p-0">
@@ -34,6 +39,17 @@ const Mint = ({  }) => {
                     infoRoadmap="CLICK 'SEASONAL SCRATCHY CARD' BUTTON ABOVE" />
             ) : (
                 <>
+                    {/* PAGINATION ARROWS */}
+                    <div className="arrowsDiv">
+                        {subpage > 1 ? (
+                            <div className={"leftArrow"} onClick={() => nextPage(-1)}></div>
+                        ) : ( <></> )}
+                        {subpage < 4 ? (
+                            <div className={"rightArrow"} onClick={() => nextPage(1)}></div>
+                        ) : ( <></> )}
+                    </div>
+
+                    {/* CONTENT */}
                     {
                         {
                             '1': <MintCard cardClass="scratchyCard1" mintActivated={false} 
