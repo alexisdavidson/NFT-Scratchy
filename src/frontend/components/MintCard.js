@@ -6,7 +6,7 @@ const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
 const MintCard = ({ mintActivated, nft, cardClass, cardText, 
-    infoPrice, infoDate, infoTime, infoTotal, infoNetwork, infoWhitelist, infoUtility, infoPrize, infoRoadmap }) => {
+    infoPrice, infoType, infoDate, infoTime, infoTotal, infoNetwork, infoWhitelist, infoUtility, infoPrize, infoRoadmap }) => {
 
     return (
         <Row className="m-0 p-0">
@@ -21,6 +21,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText,
                 ) : (
                     <div>
                         PRICE: {infoPrice}
+                        {infoType ? ( <><br/>TYPE: {infoType}</> ) : ( <></> )}
                         <br/>DATE: {infoDate}
                         <br/>TIME: {infoTime}
                         <br/>TOTAL: {infoTotal}
@@ -28,7 +29,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText,
                         <br/>WHITELIST: {infoWhitelist}
                         <br/>UTILITY: {infoUtility}
                         <br/>PRIZE: {infoPrize}
-                        <br/>ROADMAP: {infoRoadmap}
+                        {infoRoadmap ? ( <><br/>ROADMAP: {infoRoadmap}</> ) : ( <></> )}
                     </div>
                 )}
             </Col>
