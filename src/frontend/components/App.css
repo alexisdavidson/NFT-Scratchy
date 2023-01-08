@@ -64,7 +64,8 @@ a:link, a:visited, a:hover, a:active {
 .selectedSubmenu {
   cursor: default;
 }
-.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover, .subNavbarMenuNotSelected:hover {
+.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover, .subNavbarMenuNotSelected:hover,
+.coinDiv:hover {
   cursor: pointer;
 }
 
@@ -126,18 +127,27 @@ a:link, a:visited, a:hover, a:active {
 }
 
 
-.subNavbarMenu {
+.subNavbarMenu, .subCoinMenu {
   background-color: #f8d451;
   border: 4px solid #653f2c;
-  font-size: 2rem;
+  /* margin: auto; */
+  width: 30rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  
   vertical-align: middle;
-  margin: auto;
+  font-size: 2rem;
   text-transform: uppercase;
-  width: 40rem;
 }
 
-.selectedSubmenu {
+.selectedSubmenu, .subCoinMenu {
   background-color: #e46459;
+}
+
+.subCoinMenu {
+  width: 3rem;
+  margin: 2vh;
+  margin-right: 20vh;
 }
 
 
@@ -161,6 +171,19 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("./assets/Card_Placement.svg");
 }
 
+.coinDiv {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+
+.subNavbarRow {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20vh;
+}
 
 
 

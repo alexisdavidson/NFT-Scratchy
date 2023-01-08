@@ -9,7 +9,9 @@ const PopupListingSoon = ({ closePopup }) => {
 
     return (
         <Row className="popup">
-            Listing Soon
+            <div>
+                LISTING SOON
+            </div>
 
             <div className="popupButtonClose" onClick={closePopup} >
                 Close
