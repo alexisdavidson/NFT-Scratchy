@@ -6,10 +6,21 @@ const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
 const Audio = ({  }) => {
+    const [audioPlaying, setAudioPlaying] = useState(false)
 
+    const clickAudio = () => {
+        setAudioPlaying(!audioPlaying)
+
+        if (audioPlaying) {
+            console.log("Start audio")
+        }
+        else {
+            console.log("Pause audio")
+        }
+    }
     return (
-        <div className="m-0 p-0 ">
-            Audio
+        <div className={audioPlaying ? "audioDiv" : "audioDivStop"} onClick={clickAudio}>
+            
         </div>
     );
 }

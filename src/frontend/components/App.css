@@ -61,7 +61,7 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-.popupButton:hover, .popupButtonClose:hover {
+.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover {
   cursor: pointer;
 }
 
@@ -102,6 +102,24 @@ a:link, a:visited, a:hover, a:active {
 
 .selectedMenu {
   color: #e46459;
+}
+
+.audioDiv, .audioDivStop {
+  background-image: url("./assets/Audio_Play.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  
+  width: 500px;
+  height: 300px;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.audioDivStop {
+  background-image: url("./assets/Audio_Stop.png");
 }
 
 @media only screen and (max-width: 1199.98px){
