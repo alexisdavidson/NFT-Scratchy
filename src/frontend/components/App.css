@@ -171,6 +171,18 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("./assets/Card_Placement.svg");
 }
 
+.scratchyCardGenesis {
+  background-image: url("./assets/Card_Genesis.png");
+}
+
+.scratchyCard1 {
+  background-image: url("./assets/Card_1.png");
+}
+
+.scratchyCard2 {
+  background-image: url("./assets/Card_2.png");
+}
+
 .coinDiv {
   display: flex;
   justify-content: end;

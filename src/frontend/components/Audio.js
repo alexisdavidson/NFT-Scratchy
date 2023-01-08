@@ -11,7 +11,7 @@ const Audio = ({  }) => {
     const clickAudio = () => {
         setAudioPlaying(!audioPlaying)
 
-        if (audioPlaying) {
+        if (!audioPlaying) {
             console.log("Start audio")
         }
         else {
@@ -19,7 +19,7 @@ const Audio = ({  }) => {
         }
     }
     return (
-        <div className={audioPlaying ? "audioDiv" : "audioDivStop"} onClick={clickAudio}>
+        <div className={!audioPlaying ? "audioDiv" : "audioDivStop"} onClick={clickAudio}>
             
         </div>
     );
