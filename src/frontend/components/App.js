@@ -175,7 +175,7 @@ function App() {
             <Route path="/scratch" element={
               <>
                 <Navbar menu={2} togglePopup={togglePopup} />
-                <Scratch />
+                <Scratch togglePopup={togglePopup} />
               </>
             } />
           </Routes>

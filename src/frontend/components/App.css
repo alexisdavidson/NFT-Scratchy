@@ -61,7 +61,10 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover {
+.selectedSubmenu {
+  cursor: default;
+}
+.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover, .subNavbarMenuNotSelected:hover {
   cursor: pointer;
 }
 
@@ -121,6 +124,48 @@ a:link, a:visited, a:hover, a:active {
 .audioDivStop {
   background-image: url("./assets/Audio_Stop.png");
 }
+
+
+.subNavbarMenu {
+  background-color: #f8d451;
+  border: 4px solid #653f2c;
+  font-size: 2rem;
+  vertical-align: middle;
+  margin: auto;
+  text-transform: uppercase;
+  width: 40rem;
+}
+
+.selectedSubmenu {
+  background-color: #e46459;
+}
+
+
+.scratchyCard {
+  background-image: url("./assets/Card_Placement.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  margin-top: 4vh;
+
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.scratchyCardEmpty {
+  background-image: url("./assets/Card_Placement.svg");
+}
+
+
+
+
+
+
 
 @media only screen and (max-width: 1199.98px){
   
