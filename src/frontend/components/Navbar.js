@@ -5,16 +5,26 @@ import logo from './assets/Logo.png'
 import mobileMenu from './assets/mobile/Menu.svg'
 
 const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
+    
+    const buttonLinkOnClick = async (elementId) => {
+        console.log("buttonLinkOnClick: " + elementId)
+        var ex = document.getElementById(elementId);
+        ex.click();
+    }
+    
     return (
         <Row className="navigationRow">
             {/* MOBILE */}
             <div className="navbarMobileDiv displayMobile"> 
                 <Row className="menuMobileCol">
-                    <Col className="col-6 homeMobileCol">
-                        <a href="/"><Image src={logo} className = "homeMobileImage" /></a>
+                    <Col className="col-6">
+                        <div className="homeMobileCol" onClick={() => buttonLinkOnClick('home')}>
+                            <Image src={logo} className="homeMobileImage" />
+                            <a href="/" id="home"></a>
+                        </div>
                     </Col>
                     <Col className="col-6 menuMobileCol">
-                        <Image src={mobileMenu} className = "menuMobileImage"  onClick={() => setMobileMenu(true)} />
+                        <Image src={mobileMenu} className="menuMobileImage" onClick={() => setMobileMenu(true)} />
                     </Col>
                 </Row>
             </div>

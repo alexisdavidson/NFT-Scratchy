@@ -4,26 +4,20 @@ import { Image, Row, Col, Button } from 'react-bootstrap'
 
 const Menu = ({togglePopup}) => {
 
-    const buttonLinkOnClick = async (elementId) => {
-        console.log("buttonLinkOnClick: " + elementId)
-        var ex = document.getElementById(elementId);
-        ex.click();
-      }
-    
     return (
         <Row className="popupBig">
             <Row className="m-0 p-0">
                 <Row className="m-0 p-0">
-                    <div className="mobileMenuButton" onClick={() => buttonLinkOnClick('openseaLink')}>MINT</div>
+                    <a href="/mint" >MINT</a>
                 </Row>
                 <Row className="m-0 p-0">
-                    <div className="mobileMenuButton" onClick={() => buttonLinkOnClick('twitterLink')}>SCRATCH</div>
+                    <a href="/scratch" >SCRATCH</a>
                 </Row>
                 <Row className="m-0 p-0">
                     <div className="mobileMenuButton" onClick={() => togglePopup(1)}>DISCORD?</div>
                 </Row>
                 <Row className="m-0 p-0">
-                    <div className="mobileMenuButton" onClick={() => buttonLinkOnClick('aboutusLink')}>TWITTER</div>
+                    <a href="https://twitter.com/" target="_blank" >TWITTER</a>
                 </Row>
             </Row>
         </Row>
