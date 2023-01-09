@@ -9,7 +9,7 @@ import {DefaultOperatorFilterer} from "./DefaultOperatorFilterer.sol";
 contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     string public uriPrefix = '';
     string public uriSuffix = '.json';
-    uint256 public max_supply = 5000;
+    uint256 public max_supply = 10_000;
     address public plantingAddress;
     uint256 public burnAmount;
 
@@ -42,7 +42,7 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ipfs://QmZnXGbXgpBNjAJaaaoWsH5VYoTNkVgpVmbpgFXnTUyQ5d/";
+        return "ipfs://QmPo14pi3grqsN7xeVNCpqbmGjrRaaYAhVZ6a5ABLT6mAY/";
     }
     
     function baseTokenURI() public pure returns (string memory) {
