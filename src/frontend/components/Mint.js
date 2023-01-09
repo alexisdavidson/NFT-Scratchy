@@ -17,7 +17,7 @@ const Mint = ({  }) => {
 
     return (
         <Row className="m-0 p-0 mint">
-            <Row className="m-0 p-0">
+            <div className="subNavbarMenuRow">
                 <div className={"subNavbarMenu " 
                     + (submenu == 1 ? "selectedSubmenu " : " ") 
                     + (submenu == 1 ? " " : "subNavbarMenuNotSelected ")}
@@ -30,7 +30,7 @@ const Mint = ({  }) => {
                     onClick={() => setSubmenu(2)} >
                     Seasonal Scratchy Card
                 </div>
-            </Row>
+            </div>
             {submenu == 1 ? (
                 <MintCard cardClass="scratchyCardGenesis" mintActivated={false} 
                     infoPrice="FREE MINT (2 PER WALLET)" infoDate="15 JANUARY 2023" infoTime="12PM UTC"

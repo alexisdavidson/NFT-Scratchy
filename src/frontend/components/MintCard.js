@@ -14,16 +14,18 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
     return (
         <Row className="m-0 p-0">
             <Row className="m-0 p-0">
-                <Col className="col-12 col-xl-8 m-0 p-0">
+                <Col className="col-0 col-xl-1 m-0 p-0">
+                </Col>
+                <Col className="col-12 col-xl-7 m-0 p-0">
                     <div className={"scratchyCard " + cardClass} onClick={() => setDisplayCardInfo(true)} >
                         {cardText}
                     </div>
                 </Col>
-                <Col className="col-12 col-xl-4 m-0 p-0 displayDesktop">
+                <Col className="col-12 col-xl-3 m-0 p-0 displayDesktop">
                     {mintActivated ? (
                         <>Mint Activated</>
                     ) : (
-                        <div>
+                        <div className="mintDescription">
                             PRICE: {infoPrice}
                             {infoType ? ( <><br/>TYPE: {infoType}</> ) : ( <></> )}
                             <br/>DATE: {infoDate}
@@ -37,7 +39,14 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
                         </div>
                     )}
                 </Col>
+                <Col className="col-0 col-xl-1 m-0 p-0">
+                </Col>
             </Row>
+
+
+
+
+            {/* MOBILE */}
             <Row className="m-0 p-0 displayMobile">
                 <div>
                     TAP THE CARD FOR MORE INFO
