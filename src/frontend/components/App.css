@@ -90,7 +90,7 @@ a:link, a:visited, a:hover, a:active {
   width: 60%;
 }
 
-.popup, .popupBig {
+.popup, .popupBig, .popupBigSmallText {
   position : fixed;
   background-color: #f8d451;
   border: 4px solid #653f2c;
@@ -112,13 +112,19 @@ a:link, a:visited, a:hover, a:active {
   width: 100%;
   margin: auto;
 }
-.popupBig {
+.popupBig, .popupBigSmallText {
   top : 5%;
   left : 5%;
   width: 90%;
   height: 50%;
 
   z-index: 100;
+}
+
+.popupBigSmallText {
+  font-size: 1rem;
+  height: 65%;
+  text-align: left;
 }
 
 .selectedMenu {
@@ -291,8 +297,8 @@ a:link, a:visited, a:hover, a:active {
   }
 
   .scratchyCard, .scratchyCardEmpty, .scratchyCardGenesis, .scratchyCard1, .scratchyCard2 {
-    width: 300px;
-    height: 100px;
+    width: 90%;
+    height: 32vh;
   }
 
   .subNavbarMenu {
@@ -303,5 +309,22 @@ a:link, a:visited, a:hover, a:active {
     padding: 1vh;
     font-size: 1.5rem;
     width: calc(100% - 4vh);
+  }
+
+  .mobileMintBottomMenu {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    gap: 1;
+  }
+
+  .arrowDiv {
+    width: 4vh;
+    height: 4vh;
+  }
+  .leftArrow, .rightArrow {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 }
