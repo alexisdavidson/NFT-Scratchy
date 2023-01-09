@@ -10,6 +10,7 @@ import Audio from './Audio'
 import Scratch from './Scratch'
 import PopupDiscord from './PopupDiscord'
 import PopupListingSoon from './PopupListingSoon'
+import Menu from './ActionMenu'
 
 import { useState, useEffect, useRef } from 'react'
 import { ethers } from 'ethers'
@@ -29,7 +30,7 @@ function App() {
   const [supplyLeft, setSupplyLeft] = useState(totalSupply)
   const [price, setPrice] = useState(0.01)
   const [nft, setNFT] = useState({})
-  const [menu, setMenu] = useState(0)
+  const [mobileMenu, setMobileMenu] = useState(false)
   const [popup, setPopup] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [amountMinted, setAmountMinted] = useState(0)
@@ -59,12 +60,15 @@ function App() {
   const closePopup = () => {
     setPopup(0)
   }
+
   const togglePopup = (popupId) => {
     console.log("togglePopup", popupId)
 
     if (popup == popupId)
       setPopup(0)
     else setPopup(popupId)
+
+    // setMobileMenu(false)
   }
 
   const changeQuantity = (direction) => {
@@ -162,19 +166,19 @@ function App() {
           <Routes>
             <Route path="/" element={
               <>
-                <Navbar menu={0} togglePopup={togglePopup} />
+                <Navbar menu={0} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
                 <Audio />
               </>
             } />
             <Route path="/mint" element={
               <>
-                <Navbar menu={1} togglePopup={togglePopup} />
+                <Navbar menu={1} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
                 <Mint />
               </>
             } />
             <Route path="/scratch" element={
               <>
-                <Navbar menu={2} togglePopup={togglePopup} />
+                <Navbar menu={2} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
                 <Scratch togglePopup={togglePopup} />
               </>
             } />
@@ -187,6 +191,12 @@ function App() {
               '2': <PopupListingSoon closePopup={closePopup} />,
               }[popup]
             }
+
+            {mobileMenu ? (
+              <Menu togglePopup={togglePopup} />
+            ) : (
+              <></>
+            )}
         </div>
       </div>
     </BrowserRouter>
