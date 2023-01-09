@@ -15,7 +15,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
         <Row className="m-0 p-0">
             <Row className="m-0 p-0">
                 <Col className="col-12 col-xl-8 m-0 p-0">
-                    <div className={"scratchyCard " + cardClass} >
+                    <div className={"scratchyCard " + cardClass} onClick={() => setDisplayCardInfo(true)} >
                         {cardText}
                     </div>
                 </Col>
@@ -45,7 +45,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
                 <div className="mobileMintBottomMenu">
                     <div className="arrowDiv">
                         {subpage > 1 ? (
-                            <div className={"leftArrow"} onClick={() => nextPage(-1)}></div>
+                            <div className={"arrowDiv leftArrowMobile"} onClick={() => nextPage(-1)}></div>
                         ) : ( <></> )}
                     </div>
                     <div className="subNavbarMenu" onClick={() => setDisplayCardInfo(true)} >
@@ -53,7 +53,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
                     </div>
                     <div className="arrowDiv">
                         {subpage < 4 ? (
-                            <div className={"rightArrow"} onClick={() => nextPage(1)}></div>
+                            <div className={"arrowDiv rightArrowMobile"} onClick={() => nextPage(1)}></div>
                         ) : ( <></> )}
                     </div>
                 </div>

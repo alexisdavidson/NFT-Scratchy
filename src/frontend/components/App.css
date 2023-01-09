@@ -137,8 +137,8 @@ a:link, a:visited, a:hover, a:active {
   background-repeat: no-repeat;
   position: fixed;
   
-  width: 500px;
-  height: 300px;
+  width: 80vh;
+  height: 45vh;
 
   left: 50%;
   top: 50%;
@@ -312,6 +312,7 @@ a:link, a:visited, a:hover, a:active {
   }
 
   .mobileMintBottomMenu {
+    padding: 0;
     margin-top: 2vh;
     display: flex;
     align-items: center;
@@ -321,10 +322,22 @@ a:link, a:visited, a:hover, a:active {
   .arrowDiv {
     width: 4vh;
     height: 4vh;
+    /* margin-left: 1vh;
+    margin-right: 1vh; */
   }
   .leftArrow, .rightArrow {
     position: relative;
     width: 100%;
     height: 100%;
+  }
+  .leftArrowMobile, .rightArrowMobile {
+    background-image: url("./assets/Arrow_Page.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    transform: rotate(180deg);
+  }
+  .rightArrowMobile {
+    transform: rotate(0deg);
   }
 }
