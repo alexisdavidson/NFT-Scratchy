@@ -10,8 +10,6 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     string public uriPrefix = '';
     string public uriSuffix = '.json';
     uint256 public max_supply = 10_000;
-    address public plantingAddress;
-    uint256 public burnAmount;
 
     uint256 public amountMintPerAccount = 2;
     bool public mintEnabled;
@@ -91,15 +89,5 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     
     function _startTokenId() internal view override returns (uint256) {
         return 1;
-    }
-
-    function setPlantingAddress(address _address) public onlyOwner {
-        plantingAddress = _address;
-    }
-
-    function burn(uint256 _tokenId) public {
-        require(msg.sender == plantingAddress, "You don't have the right to burn this NFT");
-        _burn(_tokenId);
-        burnAmount += 1;
     }
 }
