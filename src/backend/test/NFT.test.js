@@ -22,8 +22,8 @@ describe("NFT & Planting", async function() {
 
     describe("Deployment", function() {
         it("Should track name and symbol of the nft collection", async function() {
-            expect(await nft.name()).to.equal("Beanstalker")
-            expect(await nft.symbol()).to.equal("BEAN")
+            expect(await nft.name()).to.equal("Genesis Scratchy Card")
+            expect(await nft.symbol()).to.equal("GSC")
         })
     })
 

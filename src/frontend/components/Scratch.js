@@ -24,7 +24,12 @@ const Scratch = ({ togglePopup }) => {
                 </div>
             </div>
 
-            <div className="scratchyCard scratchyCardEmpty">You don't have any<br/>Scratchy Card</div>
+            <div className="scratchCardContainer">
+                <div className="scratchyCard scratchyCardEmpty">
+                    <div>You don't have any<br/>Scratchy Card</div>
+                </div>
+            </div>
+
         </Row>
     );
 }

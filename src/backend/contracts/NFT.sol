@@ -13,13 +13,13 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     address public plantingAddress;
     uint256 public burnAmount;
 
-    uint256 public amountMintPerAccount = 1;
+    uint256 public amountMintPerAccount = 2;
     bool public mintEnabled;
-    uint256 public price = 0.01 ether;
+    uint256 public price = 0 ether;
 
     event MintSuccessful(address user);
 
-    constructor() ERC721A("Beanstalker", "BEAN") { }
+    constructor() ERC721A("Genesis Scratchy Card", "GSC") { }
 
     function mint(uint256 quantity) external payable {
         require(mintEnabled, 'Minting is not enabled');
@@ -50,7 +50,7 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     }
 
     function contractURI() public pure returns (string memory) {
-        return "ipfs://QmQyzT57qahsGY2qp6fZ3G1TEUzciDmA7xcPaiyS1QswLr/";
+        return "ipfs://QmZn7J1NDdFgJm5Q7pxmivZFKVDjcBcpU9sN1kezBUZpLn/";
     }
 
     function setAmountMintPerAccount(uint _amountMintPerAccount) public onlyOwner {
