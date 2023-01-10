@@ -21,7 +21,7 @@ const MintCard = ({ mintActivated, nft, cardClass, cardText, nextPage, subpage,
                         {cardText}
                     </div>
                 </Col>
-                <Col className="col-12 col-xl-3 m-0 p-0 displayDesktop">
+                <Col className="col-12 col-xl-3 m-0 p-0 displayDesktopBlock">
                     {mintActivated ? (
                         <>Mint Activated</>
                     ) : (

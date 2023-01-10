@@ -6,6 +6,9 @@
 .displayDesktop {
   display: contents;
 }
+.displayDesktopBlock {
+  display: block;
+}
 .displayMobile {
   display: none;
 }
@@ -192,6 +195,7 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("./assets/Card_Placement.svg");
   background-size: contain;
   background-repeat: no-repeat;
+  /* 1.61 ratio */
   width: 100vh;
   height: 60vh;
   margin: auto;
@@ -269,7 +273,7 @@ a:link, a:visited, a:hover, a:active {
 
 
 @media only screen and (max-width: 1199.98px){
-  .displayDesktop {
+  .displayDesktop, .displayDesktopBlock {
     display: none;
   }
   .displayMobile {
