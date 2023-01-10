@@ -235,7 +235,7 @@ a:link, a:visited, a:hover, a:active {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 20vh;
+  gap: 30vh;
 }
 
 .leftArrow, .rightArrow {
