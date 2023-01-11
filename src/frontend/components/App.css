@@ -75,11 +75,11 @@ a:link, a:visited, a:hover, a:active {
   cursor: default;
 }
 .popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover, .subNavbarMenuNotSelected:hover,
-.coinDiv:hover {
+.coinDiv:hover, .mintButton:hover {
   cursor: pointer;
 }
 
-.popupButtonClose {
+.popupButtonClose, .mintButton {
   background-color: #e46459;
   border: 4px solid #653f2c;
   font-size: 2rem;
@@ -87,6 +87,10 @@ a:link, a:visited, a:hover, a:active {
   margin: auto;
   text-transform: uppercase;
   width: 12rem;
+}
+
+.mintButton {
+  background-color: #f8d451;
 }
 
 .logo {
@@ -266,6 +270,13 @@ a:link, a:visited, a:hover, a:active {
   padding: 4vh;
 }
 
+.mintDescriptionMintActivated {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 4vh;
+  grid-gap: 5rem;
+}
+
 
 
 
@@ -278,6 +289,9 @@ a:link, a:visited, a:hover, a:active {
   }
   .displayMobile {
     display: contents;
+  }
+  .mintDescriptionMintActivated {
+    grid-gap: .5rem;
   }
   
   .navbarMobileDiv {

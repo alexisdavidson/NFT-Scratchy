@@ -173,7 +173,7 @@ function App() {
             <Route path="/mint" element={
               <>
                 <Navbar menu={1} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Mint />
+                <Mint account={account} />
               </>
             } />
             <Route path="/scratch" element={

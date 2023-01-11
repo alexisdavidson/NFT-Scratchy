@@ -6,7 +6,7 @@ import MintCard from './MintCard'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const Mint = ({  }) => {
+const Mint = ({ account }) => {
     const [submenu, setSubmenu] = useState(1)
     const [subpage, setSubpage] = useState(1)
 
@@ -32,7 +32,7 @@ const Mint = ({  }) => {
                 </div>
             </div>
             {submenu == 1 ? (
-                <MintCard cardClass="scratchyCardGenesis" mintActivated={false} 
+                <MintCard cardClass="scratchyCardGenesis" mintActivated={true} 
                     infoPrice="FREE MINT (2 PER WALLET)" infoDate="15 JANUARY 2023" infoTime="12PM UTC"
                     infoTotal="10,000 CARDS" infoNetwork="ETHEREUM" infoWhitelist="NO / FCFS" infoUtility="PROOF OF SCRATCH"
                     infoPrize="FREE MINT SPOT FOR SEASONAL SCRATCHY CARD"
