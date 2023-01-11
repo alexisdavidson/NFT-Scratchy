@@ -22,6 +22,7 @@ const MintDiv = ({ account, nft}) => {
 
     const mintButton = () => {
         console.log("mintButton", quantity)
+        // Try Gelato's method, with wait().wait() and not use listeners to confirm transaction
     }
 
     const scratchIt = () => {

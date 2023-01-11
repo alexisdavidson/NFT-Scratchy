@@ -4,9 +4,9 @@ const helpers = require("@nomicfoundation/hardhat-network-helpers")
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 const fromWei = (num) => parseInt(ethers.utils.formatEther(num))
 
-describe("NFT & Planting", async function() {
+describe("NFT", async function() {
     let deployer, addr1, addr2, nft
-    let price = 0.01
+    let price = 0
 
     beforeEach(async function() {
         // Get contract factories
@@ -34,13 +34,32 @@ describe("NFT & Planting", async function() {
 
             await expect(nft.connect(addr1).mint(3, { value: toWei(price * 3)})).to.be.revertedWith('Each address may only mint x NFTs!');
             await expect(nft.connect(addr1).mint(10000, { value: toWei(price)})).to.be.revertedWith('Cannot mint more than max supply');
-            await expect(nft.connect(addr1).mint(1)).to.be.revertedWith('Not enough ETH sent; check price!');
+            // await expect(nft.connect(addr1).mint(1)).to.be.revertedWith('Not enough ETH sent; check price!');
 
             await nft.connect(addr1).mint(1, { value: toWei(price)});
             expect(await nft.balanceOf(addr1.address)).to.equal(1);
             expect(await nft.totalSupply()).to.equal(1);
 
-            await expect(nft.connect(addr3).mint(2, { value: toWei(price * 2)})).to.be.revertedWith('Each address may only mint x NFTs!');
+        })
+        it("Should burn and track NFTs", async function() {
+            await nft.connect(deployer).setMintEnabled(true);
+            await nft.connect(addr1).mint(2, { value: toWei(price)});
+            expect(await nft.balanceOf(addr1.address)).to.equal(2);
+            
+            await expect(nft.connect(addr2).scratch(1)).to.be.revertedWith("You don't have the right to scratch this NFT");
+            await expect(nft.connect(addr1).scratch(3)).to.be.revertedWith("OwnerQueryForNonexistentToken()");
+
+            await nft.connect(addr1).scratch(1);
+            expect(await nft.balanceOf(addr1.address)).to.equal(1);
+            console.log("getScratched", await nft.getScratched(addr1.address))
+            expect((await nft.getScratched(addr1.address))[0]).to.equal(1);
+            
+            await nft.connect(addr1).scratch(2);
+            expect(await nft.balanceOf(addr1.address)).to.equal(0);
+            console.log("getScratched", await nft.getScratched(addr1.address))
+            expect((await nft.getScratched(addr1.address))[0]).to.equal(1);
+            expect((await nft.getScratched(addr1.address))[1]).to.equal(2);
+
         })
         it("Should perform owner functions", async function() {
             let newAmountMintPerAccount = 10
