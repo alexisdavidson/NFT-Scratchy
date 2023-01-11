@@ -19,8 +19,10 @@ const Audio = ({  }) => {
         }
     }
     return (
-        <div className={!audioPlaying ? "audioDiv" : "audioDivStop"} onClick={clickAudio}>
-            
+        <div className={"audioDiv"} onClick={clickAudio}>
+            <div className={!audioPlaying ? "audioButtonPlay" : "audioButtonStop"} >
+                
+            </div>
         </div>
     );
 }

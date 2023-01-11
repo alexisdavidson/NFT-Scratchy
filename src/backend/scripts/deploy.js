@@ -13,7 +13,7 @@ async function main() {
 
   // For testing
   await nft.setMintEnabled(true);
-  await nft.setPrice(0);
+  // await nft.setPrice(0); // Price is already 0
   await nft.mint(1, { value: 0});
   console.log("Goerli test functions called")
 }

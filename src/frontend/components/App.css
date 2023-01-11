@@ -74,7 +74,7 @@ a:link, a:visited, a:hover, a:active {
 .selectedSubmenu {
   cursor: default;
 }
-.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .audioDivStop:hover, .subNavbarMenuNotSelected:hover,
+.popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .subNavbarMenuNotSelected:hover,
 .coinDiv:hover, .mintButton:hover {
   cursor: pointer;
 }
@@ -149,22 +149,35 @@ a:link, a:visited, a:hover, a:active {
   color: #e46459;
 }
 
-.audioDiv, .audioDivStop {
-  background-image: url("./assets/Audio_Play.png");
+.audioDiv {
+  background-image: url("./assets/degen.gif");
   background-size: contain;
+  background-size: 50%, 50%;
+  background-position: center;
   background-repeat: no-repeat;
   position: fixed;
   
-  width: 80vh;
+  width: 45vh;
   height: 45vh;
 
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  
+  display: flex;
+  align-items: baseline;
+  justify-content: end;
 }
 
-.audioDivStop {
-  background-image: url("./assets/Audio_Stop.png");
+.audioButtonPlay, .audioButtonStop {
+  background-image: url("./assets/AudioPlay.svg");
+  width: 15vh;
+  height: 15vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.audioButtonStop {
+  background-image: url("./assets/AudioStop.svg");
 }
 
 
