@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { Image, Row, Col, Button } from 'react-bootstrap'
+import MintDiv from './MintDiv'
 
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const MintCard = ({ account, mintActivated, nft, cardClass, cardText, nextPage, subpage,
+const MintCard = ({ account, mintActivated, nft,
+    cardClass, cardText, nextPage, subpage,
     infoPrice, infoType, infoDate, infoTime, infoTotal, infoNetwork, infoWhitelist, infoUtility, infoPrize, infoRoadmap,
     mobileTitle }) => {
 
@@ -27,18 +29,7 @@ const MintCard = ({ account, mintActivated, nft, cardClass, cardText, nextPage, 
                 </Col>
                 <Col className="col-12 col-xl-3 m-0 p-0 displayDesktopBlock">
                     {mintActivated ? (
-                        <Row className="mintDescriptionMintActivated">
-                            <Row className="m-auto p-0"><div>10,000/10,000 CARDS LEFT</div></Row>
-                            <Row className="m-auto p-0">
-                                {account ? (
-                                    <div className="mintButton" onClick={mintButton}>MINT</div>
-                                ) : (
-                                    <div className="mintButton" onClick={mintButton}>CONNECT</div>
-                                )}
-                                
-                            </Row>
-                            <Row className="m-auto p-0"><div>2 CARDS PER WALLET</div></Row>
-                        </Row>
+                        <MintDiv account={account} nft={nft} />
                     ) : (
                         <div className="mintDescription">
                             PRICE: {infoPrice}
@@ -64,18 +55,7 @@ const MintCard = ({ account, mintActivated, nft, cardClass, cardText, nextPage, 
             {/* MOBILE */}
             <Row className="m-0 p-0 displayMobile">
                 {mintActivated ? (
-                    <Row className="mintDescriptionMintActivated">
-                        <Row className="m-auto p-0"><div>10,000/10,000 CARDS LEFT</div></Row>
-                        <Row className="m-auto p-0">
-                            {account ? (
-                                <div className="mintButton" onClick={mintButton}>MINT</div>
-                            ) : (
-                                <div className="mintButton" onClick={mintButton}>CONNECT</div>
-                            )}
-                            
-                        </Row>
-                        <Row className="m-auto p-0"><div>2 CARDS PER WALLET</div></Row>
-                    </Row>
+                    <MintDiv account={account} nft={nft} />
                 ) : (
                     <>
                     <div>

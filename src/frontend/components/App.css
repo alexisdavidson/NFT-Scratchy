@@ -91,6 +91,9 @@ a:link, a:visited, a:hover, a:active {
 
 .mintButton {
   background-color: #f8d451;
+  width: 15rem;
+  font-size: 1.6rem;
+  /* height: 3rem; */
 }
 
 .logo {
@@ -273,7 +276,9 @@ a:link, a:visited, a:hover, a:active {
 .mintDescriptionMintActivated {
   text-align: center;
   font-size: 1.5rem;
-  padding: 4vh;
+  padding: 0;
+  padding-left: 4vh;
+  padding-right: 4vh;
   grid-gap: 5rem;
 }
 
@@ -291,7 +296,7 @@ a:link, a:visited, a:hover, a:active {
     display: contents;
   }
   .mintDescriptionMintActivated {
-    grid-gap: .5rem;
+    grid-gap: 0rem;
   }
   
   .navbarMobileDiv {
