@@ -13,15 +13,17 @@ const Audio = ({  }) => {
 
         if (!audioPlaying) {
             console.log("Start audio")
+            document.getElementById('audio').play()
         }
         else {
             console.log("Pause audio")
+            document.getElementById('audio').pause()
         }
     }
     return (
         <div className={"audioDiv"} onClick={clickAudio}>
             <div className={!audioPlaying ? "audioButtonPlay" : "audioButtonStop"} >
-                
+                <audio id="audio"><source src="audio.mp3" type="audio/mp3"></source></audio>
             </div>
         </div>
     );
