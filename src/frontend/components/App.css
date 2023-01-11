@@ -296,6 +296,10 @@ a:link, a:visited, a:hover, a:active {
   width: 2rem;
 }
 
+.minusPlusImage:hover {
+  cursor: pointer;
+}
+
 
 
 

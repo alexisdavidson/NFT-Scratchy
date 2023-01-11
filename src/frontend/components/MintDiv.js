@@ -8,6 +8,16 @@ const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
 const MintDiv = ({ account, nft}) => {
+    const [quantity, setQuantity] = useState(1)
+
+    const changeQuantity = (direction) => {
+        if (quantity + direction < 1)
+            setQuantity(1)
+        else if (quantity + direction > 2)
+            setQuantity(2)
+        else
+            setQuantity(quantity + direction)
+    }
 
     const mintButton = () => {
         console.log("mintButton")
@@ -18,9 +28,9 @@ const MintDiv = ({ account, nft}) => {
             <Row className="m-auto p-0">
                 <div>10,000/10,000 CARDS LEFT</div>
                 <div className="quantitySelectorRow">
-                    <div><img src={mintMinus} className="minusPlusImage" /></div>
-                    <div>1</div>
-                    <div><img src={mintPlus} className="minusPlusImage" /></div>
+                    <div onClick={() => changeQuantity(-1)}><img src={mintMinus} className="minusPlusImage" /></div>
+                    <div>{quantity}</div>
+                    <div onClick={() => changeQuantity(1)}><img src={mintPlus} className="minusPlusImage" /></div>
                 </div>
                 {account ? (
                     <div className="mintButton" onClick={mintButton}>MINT FOR FREE</div>
