@@ -279,6 +279,7 @@ a:link, a:visited, a:hover, a:active {
   padding: 0;
   padding-left: 4vh;
   padding-right: 4vh;
+  margin-top: 8vh;
   grid-gap: 5rem;
 }
 
@@ -296,6 +297,7 @@ a:link, a:visited, a:hover, a:active {
     display: contents;
   }
   .mintDescriptionMintActivated {
+    margin-top: 0;
     grid-gap: 0rem;
   }
   
