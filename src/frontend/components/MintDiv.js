@@ -9,6 +9,7 @@ const toWei = (num) => ethers.utils.parseEther(num.toString())
 
 const MintDiv = ({ account, nft}) => {
     const [quantity, setQuantity] = useState(1)
+    const [justMinted, setJustMinted] = useState(false)
 
     const changeQuantity = (direction) => {
         if (quantity + direction < 1)
@@ -20,35 +21,61 @@ const MintDiv = ({ account, nft}) => {
     }
 
     const mintButton = () => {
-        console.log("mintButton")
+        console.log("mintButton", quantity)
+    }
+
+    const scratchIt = () => {
+        console.log("scratchIt")
+    }
+
+    const sellOpensea = () => {
+        console.log("sellOpensea")
     }
 
     return (
         <Row className="mintDescriptionMintActivated">
-            <Row className="m-auto p-0">
-                <div>10,000/10,000 CARDS LEFT</div>
-                <div className="quantitySelectorRow">
-                    <div onClick={() => changeQuantity(-1)}><img src={mintMinus} className="minusPlusImage" /></div>
-                    <div>{quantity}</div>
-                    <div onClick={() => changeQuantity(1)}><img src={mintPlus} className="minusPlusImage" /></div>
-                </div>
-                {account ? (
-                    <div className="mintButton" onClick={mintButton}>MINT FOR FREE</div>
-                ) : (
-                    <div className="mintButton" onClick={mintButton}>CONNECT</div>
-                )}
-                
-            </Row>
-            <Row className="m-auto p-0">
-                <div>2 CARDS PER WALLET</div>
-                {account ? (
-                    <div className="m-auto p-0">
-                        {account.slice(0, 9) + '...' + account.slice(34, 42)}
-                    </div>
-                ) : (
-                    <></>
-                )}
-            </Row>
+            {!justMinted ? (
+                <>
+                    <Row className="m-auto p-0">
+                        <div>10,000/10,000 CARDS LEFT</div>
+                        <div className="quantitySelectorRow">
+                            <div onClick={() => changeQuantity(-1)}><img src={mintMinus} className="minusPlusImage" /></div>
+                            <div>{quantity}</div>
+                            <div onClick={() => changeQuantity(1)}><img src={mintPlus} className="minusPlusImage" /></div>
+                        </div>
+                        {account ? (
+                            <div className="mintButton" onClick={mintButton}>MINT FOR FREE</div>
+                        ) : (
+                            <div className="mintButton" onClick={mintButton}>CONNECT</div>
+                        )}
+                        
+                    </Row>
+                    <Row className="m-auto p-0">
+                        <div>2 CARDS PER WALLET</div>
+                        {account ? (
+                            <div className="m-auto p-0">
+                                {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </Row>
+                </>
+            ) : (
+                <>
+                    <Row className="m-auto p-0">
+                        <div className="displayDesktopBlock" style={{textAlign: "left"}}>
+                            CONGRATULATIONS! YOU'VE MINTED A GENESIS SCRATCH CARD. WHAT'S NEXT?
+                        </div>
+                        <div className="displayMobileBlock">MINTED! WHAT'S NEXT?</div>
+                        <div className="wideButton" onClick={scratchIt}>SCRATCH IT</div>
+                        <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
+                        <div className="m-auto p-0">
+                            {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                        </div>
+                    </Row>
+                </>
+            )}
         </Row>
     );
 }

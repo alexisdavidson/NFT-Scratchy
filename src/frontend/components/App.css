@@ -9,7 +9,7 @@
 .displayDesktopBlock {
   display: block;
 }
-.displayMobile {
+.displayMobile, .displayMobileBlock {
   display: none;
 }
 
@@ -79,7 +79,7 @@ a:link, a:visited, a:hover, a:active {
   cursor: pointer;
 }
 
-.popupButtonClose, .mintButton {
+.popupButtonClose, .mintButton, .wideButton, .wideButtonRed {
   background-color: #e46459;
   border: 4px solid #653f2c;
   font-size: 2rem;
@@ -94,6 +94,14 @@ a:link, a:visited, a:hover, a:active {
   width: 15rem;
   font-size: 1.6rem;
   /* height: 3rem; */
+}
+
+.wideButton, .wideButtonRed {
+  width: 100%;
+  margin: .5rem;
+}
+.wideButton {
+  background-color: #f8d451;
 }
 
 .logo {
@@ -312,6 +320,10 @@ a:link, a:visited, a:hover, a:active {
   .displayMobile {
     display: contents;
   }
+  .displayMobileBlock {
+    display: block;
+  }
+
   .mintDescriptionMintActivated {
     margin-top: 0;
     grid-gap: 0rem;
