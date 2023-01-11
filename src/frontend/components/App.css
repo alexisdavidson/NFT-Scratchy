@@ -280,9 +280,21 @@ a:link, a:visited, a:hover, a:active {
   padding-left: 4vh;
   padding-right: 4vh;
   margin-top: 8vh;
-  grid-gap: 5rem;
+  grid-gap: 2rem;
+  /* width: 100%; */
 }
 
+.quantitySelectorRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 3rem;
+}
+
+.minusPlusImage {
+  width: 2rem;
+}
 
 
 
@@ -299,6 +311,12 @@ a:link, a:visited, a:hover, a:active {
   .mintDescriptionMintActivated {
     margin-top: 0;
     grid-gap: 0rem;
+    font-size: 1.3rem;
+  }
+
+  .quantitySelectorRow {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
   
   .navbarMobileDiv {
