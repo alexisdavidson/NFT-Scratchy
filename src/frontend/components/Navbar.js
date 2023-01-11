@@ -34,7 +34,7 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
                 <Col className="logoCol col-1">
                     <a href="/" className="logo"><img src={logo} className="logoNavbarImg" /></a>
                 </Col>
-                <Col className="navigation m-0 p-0 col-10">
+                <Col className="navigation m-0 p-0 col-11">
                     <Row className="navigationLinksRow">
                         <Col className="navigationLinksColLeft col-6">
                             <div className="m-0 p-0">
