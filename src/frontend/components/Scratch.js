@@ -10,7 +10,7 @@ const Scratch = ({ togglePopup }) => {
     const [submenu, setSubmenu] = useState(1)
 
     return (
-        <Row className="m-0 p-0 mt-5 scratch">
+        <Row className="m-0 p-0 mt-5">
             <div className="m-0 p-0 subNavbarRow">
                 <div className={"subNavbarMenu " 
                     + (submenu == 1 ? "selectedSubmenu " : " ") 

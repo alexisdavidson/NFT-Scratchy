@@ -254,6 +254,9 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .coinDiv {
+  position: absolute;
+  right: 0%;
+
   display: flex;
   justify-content: end;
   align-items: center;
@@ -262,7 +265,7 @@ a:link, a:visited, a:hover, a:active {
 
 .subNavbarRow {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   gap: 30vh;
 }
@@ -339,6 +342,10 @@ a:link, a:visited, a:hover, a:active {
     display: block;
   }
 
+
+  .coinDiv {
+    position: relative;
+  }
   .mintDescriptionMintActivated {
     margin-top: 0;
     grid-gap: 0rem;
