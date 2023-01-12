@@ -75,7 +75,8 @@ a:link, a:visited, a:hover, a:active {
   cursor: default;
 }
 .popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .subNavbarMenuNotSelected:hover,
-.coinDiv:hover, .mintButton:hover, .wideButton:hover ,.wideButtonRed:hover, .navbarLinkElement:hover {
+.coinDiv:hover, .mintButton:hover, .wideButton:hover ,.wideButtonRed:hover, .navbarLinkElement:hover,
+.scratchyCardScratchable:hover {
   cursor: pointer;
 }
 
@@ -242,7 +243,15 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .scratchyCardGenesis {
-  background-image: url("./assets/Card_Genesis.png");
+  background-image: url("./assets/Genesis/Before.png");
+}
+
+.scratchyCardGenesisDuring {
+  background-image: url("./assets/Genesis/Scratch.gif");
+}
+
+.scratchyCardGenesisAfter {
+  background-image: url("./assets/Genesis/After.png");
 }
 
 .scratchyCard1 {
@@ -429,9 +438,10 @@ a:link, a:visited, a:hover, a:active {
     margin-right: 1vh; */
   }
   .leftArrow, .rightArrow {
-    position: relative;
+    /* position: relative;
     width: 100%;
-    height: 100%;
+    height: 100%; */
+    bottom: 30%;
   }
   .leftArrowMobile, .rightArrowMobile {
     background-image: url("./assets/Arrow_Page.svg");

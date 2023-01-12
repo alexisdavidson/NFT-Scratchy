@@ -35,6 +35,7 @@ function App() {
   const [quantity, setQuantity] = useState(1)
   const [amountMinted, setAmountMinted] = useState(0)
   const [provider, setProvider] = useState({})
+  const [items, setItems] = useState(null)
 
   const providerRef = useRef();
   providerRef.current = provider;
@@ -50,6 +51,8 @@ function App() {
   nftRef.current = nft;
   const accountRef = useRef();
   accountRef.current = account;
+
+  const zeroPad = (num, places) => String(num).padStart(places, '0')
 
   const buttonLinkOnClick = async (elementId) => {
     console.log("buttonLinkOnClick: " + elementId)
@@ -90,7 +93,7 @@ function App() {
   }
 
   const loadOpenSeaItems = async (acc, nft) => {
-    let items = await fetch(`${configContract.OPENSEA_API_TESTNETS}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
+    let itemsOpenSea = await fetch(`${configContract.OPENSEA_API_TESTNETS}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
     .then((res) => res.json())
     .then((res) => {
       return res.assets
@@ -101,7 +104,36 @@ function App() {
       return null
     })
 
+    let itemsScratched = await nft.getScratched(acc)
+    let items = []
+    for(let i = 0; i < itemsScratched.length; i ++) {
+      items.push({})
+      items[i].name = "GENESIS SCRATCHY CARD #" + zeroPad(parseInt(itemsScratched[i]), 4);
+      items[i].token_id = parseInt(itemsScratched[i]);
+      items[i].isScratched = true;
+    }
+
+    for(let i = 0; i < itemsOpenSea?.length; i ++) {
+      items.push({
+        name: itemsOpenSea[i].name,
+        token_id: itemsOpenSea[i].token_id,
+        isScratched: false
+      })
+    }
+
+    function compare( a, b ) {
+      if ( a.token_id < b.token_id ){
+        return -1;
+      }
+      if ( a.token_id > b.token_id ){
+        return 1;
+      }
+      return 0;
+    }
+
+    items.sort(compare)
     console.log(items)
+    setItems(items)
   }
 
   const mintFinished = async (nft) => {
@@ -167,7 +199,7 @@ function App() {
             <Route path="/scratch" element={
               <>
                 <Navbar menu={2} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Scratch togglePopup={togglePopup} web3Handler={web3Handler} />
+                <Scratch account={account} togglePopup={togglePopup} nft={nft} web3Handler={web3Handler} items={items}/>
               </>
             } />
           </Routes>

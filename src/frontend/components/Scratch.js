@@ -6,12 +6,37 @@ import coinLogo from './assets/Coin.png'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const Scratch = ({ togglePopup, web3Handler }) => {
+const Scratch = ({ account, nft, togglePopup, web3Handler, items }) => {
     const [submenu, setSubmenu] = useState(1)
     const [loading, setLoading] = useState(true)
+    const [currentItemIndex, setCurrentItemIndex] = useState(0)
+    const [refresh, forceRefresh] = useState(0)
+
+    const nextPage = (direction) => {
+        setCurrentItemIndex(currentItemIndex + direction)
+    }
+
+    const scratch = async () => {
+        console.log("scratch", items[currentItemIndex].token_id)
+
+        // Scratch GIF
+        items[currentItemIndex].isBeingScratched = true
+        forceRefresh(refresh + 1)
+
+        try {
+            await(await nft.scratch(items[currentItemIndex].token_id)).wait()
+            items[currentItemIndex].isScratched = true
+            forceRefresh(refresh + 1)
+        } catch (error) {
+            console.error("Custom error handling: " + error);
+            items[currentItemIndex].isBeingScratched = false
+            forceRefresh(refresh + 1)
+        }
+    }
 
     useEffect(async () => {
-        await web3Handler()
+        if (!account)
+            await web3Handler()
         setLoading(false)
       }, [])
     return (
@@ -20,7 +45,11 @@ const Scratch = ({ togglePopup, web3Handler }) => {
                 <div className={"subNavbarMenu " 
                     + (submenu == 1 ? "selectedSubmenu " : " ") 
                     + (submenu == 1 ? " " : "subNavbarMenuNotSelected ")}>
-                    No Genesis Scratchy Card
+                    {!items || items.length == 0 ? (
+                        <>No Genesis Scratchy Card</>
+                    ) : (
+                        <>{items[currentItemIndex].name}</>
+                    )}
                 </div>
 
                 <div className="coinDiv" onClick={() => togglePopup(2)}>
@@ -39,11 +68,41 @@ const Scratch = ({ togglePopup, web3Handler }) => {
                 </>
             ) : (
                 <>
-                    <div className="scratchCardContainer">
-                        <div className="scratchyCard scratchyCardEmpty">
-                            <div>You don't have any<br/>Scratchy Card</div>
+                    {!items || items.length == 0 ? (
+                        <div className="scratchCardContainer">
+                            <div className="scratchyCard scratchyCardEmpty">
+                                <div>You don't have any<br/>Scratchy Card</div>
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <>
+                            <div className="scratchCardContainer">
+                                {items[currentItemIndex].isScratched ? (
+                                    <div className="scratchyCard scratchyCardGenesisAfter">
+                                    </div>
+                                ) : (
+                                    items[currentItemIndex].isBeingScratched ? (
+                                        <div className="scratchyCard scratchyCardGenesisDuring">
+                                        </div>
+                                    ) : (
+                                        <div className="scratchyCard scratchyCardGenesis scratchyCardScratchable" onClick={scratch}>
+                                        </div>
+                                    )
+                                )}
+                            </div>
+
+                            {/* PAGINATION ARROWS */}
+                            <div className="arrowsDiv">
+                                {currentItemIndex > 0 ? (
+                                    <div className={"leftArrow"} onClick={() => nextPage(-1)}></div>
+                                ) : ( <></> )}
+                                {items && currentItemIndex < items.length - 1 ? (
+                                    <div className={"rightArrow"} onClick={() => nextPage(1)}></div>
+                                ) : ( <></> )}
+                            </div>
+                        </>
+                    )}
+                    
                 </>
             )}
 
