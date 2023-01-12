@@ -17,7 +17,7 @@ const Menu = ({togglePopup}) => {
                     <div className="mobileMenuButton" onClick={() => togglePopup(1)}>DISCORD?</div>
                 </Row>
                 <Row className="m-0 p-0">
-                    <a href="https://twitter.com/" target="_blank" >TWITTER</a>
+                    <a href="https://twitter.com/scratchygg" target="_blank" >TWITTER</a>
                 </Row>
             </Row>
         </Row>

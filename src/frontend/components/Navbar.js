@@ -67,7 +67,7 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
                                 Discord?
                             </div>
                             <div className="m-0 p-0">
-                                <a href="https://twitter.com/" target="_blank" className="navbarElement">Twitter</a>
+                                <a href="https://twitter.com/scratchygg" target="_blank" className="navbarElement">Twitter</a>
                             </div>
                         </Col>
                     </Row>
