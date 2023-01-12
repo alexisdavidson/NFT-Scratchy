@@ -6,16 +6,12 @@ import MintDiv from './MintDiv'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const MintCard = ({ account, mintActivated, nft,
+const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
     cardClass, cardText, nextPage, subpage,
     infoPrice, infoType, infoDate, infoTime, infoTotal, infoNetwork, infoWhitelist, infoUtility, infoPrize, infoRoadmap,
     mobileTitle }) => {
 
     const [displayCardInfo, setDisplayCardInfo] = useState(false)
-
-    const mintButton = () => {
-        console.log("mintButton")
-    }
 
     return (
         <Row className="m-0 p-0">
@@ -29,7 +25,7 @@ const MintCard = ({ account, mintActivated, nft,
                 </Col>
                 <Col className="col-12 col-xl-3 m-0 p-0 displayDesktopBlock">
                     {mintActivated ? (
-                        <MintDiv account={account} nft={nft} />
+                        <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} />
                     ) : (
                         <div className="mintDescription">
                             PRICE: {infoPrice}
@@ -55,7 +51,7 @@ const MintCard = ({ account, mintActivated, nft,
             {/* MOBILE */}
             <Row className="m-0 p-0 displayMobile">
                 {mintActivated ? (
-                    <MintDiv account={account} nft={nft} />
+                    <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} />
                 ) : (
                     <>
                     <div>

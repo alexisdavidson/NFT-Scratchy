@@ -80,20 +80,11 @@ function App() {
           setQuantity(quantity + direction)
   }
 
-  const mintButton = async () => {
-      console.log("mint button")
-      let price = fromWei(await nft.getPrice()) * quantity;
-      console.log("Price: " + price + " wei");
-      console.log("Quantity: " + quantity)
-      await nft.mint(quantity, { value: toWei(price) });
-  }
-
   const web3Handler = async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
     await loadContracts(accounts[0])
     
-    setBalance(await nftRef.current.balanceOf(accounts[0]))
     setAccount(accounts[0])
     loadOpenSeaItems(accounts[0], nftRef.current)
   }
@@ -139,6 +130,9 @@ function App() {
     console.log("tickets left: " + supplyLeftTemp)
     setSupplyLeft(supplyLeftTemp)
     setPrice(fromWei(await nft.getPrice()))
+    const balanceTemp = parseInt(await nft.balanceOf(acc))
+    console.log("balance", balanceTemp)
+    setBalance(balanceTemp)
     setNFT(nft)
     nft.on("MintSuccessful", (user) => {
         console.log("MintSuccessful");
@@ -173,7 +167,7 @@ function App() {
             <Route path="/mint" element={
               <>
                 <Navbar menu={1} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Mint account={account} />
+                <Mint web3Handler={web3Handler} account={account} nft={nft} balance={balance} />
               </>
             } />
             <Route path="/scratch" element={

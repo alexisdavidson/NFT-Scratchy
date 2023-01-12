@@ -7,7 +7,7 @@ import mintPlus from './assets/mintPlus.svg'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const MintDiv = ({ account, nft}) => {
+const MintDiv = ({ account, web3Handler, nft, balance}) => {
     const [quantity, setQuantity] = useState(1)
     const [justMinted, setJustMinted] = useState(false)
 
@@ -20,9 +20,26 @@ const MintDiv = ({ account, nft}) => {
             setQuantity(quantity + direction)
     }
 
-    const mintButton = () => {
+    const mintButton = async () => {
+        if (account == null) {
+            await web3Handler();
+            return
+        }
+
+        console.log("balance", balance)
         console.log("mintButton", quantity)
         // Try Gelato's method, with wait().wait() and not use listeners to confirm transaction
+        let price = fromWei(await nft.getPrice()) * quantity;
+        console.log("Price: " + price + " wei");
+        console.log("Quantity: " + quantity)
+        
+        try {
+            await(await nft.mint(quantity, { value: toWei(price) })).wait()
+            setJustMinted(true)
+        } catch (error) {
+            console.error("Custom error handling: " + error);
+            // document.getElementById("items-container-opensea").innerHTML = error
+        }
     }
 
     const scratchIt = () => {
@@ -35,7 +52,7 @@ const MintDiv = ({ account, nft}) => {
 
     return (
         <Row className="mintDescriptionMintActivated">
-            {!justMinted ? (
+            {!(justMinted || balance >= 2) ? (
                 <>
                     <Row className="m-auto p-0">
                         <div>10,000/10,000 CARDS LEFT</div>
@@ -71,9 +88,13 @@ const MintDiv = ({ account, nft}) => {
                         <div className="displayMobileBlock">MINTED! WHAT'S NEXT?</div>
                         <div className="wideButton" onClick={scratchIt}>SCRATCH IT</div>
                         <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
-                        <div className="m-auto p-0">
-                            {account.slice(0, 9) + '...' + account.slice(34, 42)}
-                        </div>
+                        {account ? (
+                            <div className="m-auto p-0">
+                                {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                            </div>
+                        ) : (
+                            <></>
+                        )}
                     </Row>
                 </>
             )}
