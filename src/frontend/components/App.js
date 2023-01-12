@@ -90,7 +90,7 @@ function App() {
   }
 
   const loadOpenSeaItems = async (acc, nft) => {
-    let items = await fetch(`${configContract.OPENSEA_API}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
+    let items = await fetch(`${configContract.OPENSEA_API_TESTNETS}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
     .then((res) => res.json())
     .then((res) => {
       return res.assets
@@ -102,12 +102,6 @@ function App() {
     })
 
     console.log(items)
-
-    if (items != null && items.length > 0) {
-      console.log("bean to use: " + items[0].token_id)
-    }
-    else 
-      console.log("OpenSea could not find a bean for address " + acc)
   }
 
   const mintFinished = async (nft) => {
@@ -173,7 +167,7 @@ function App() {
             <Route path="/scratch" element={
               <>
                 <Navbar menu={2} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Scratch togglePopup={togglePopup} />
+                <Scratch togglePopup={togglePopup} web3Handler={web3Handler} />
               </>
             } />
           </Routes>

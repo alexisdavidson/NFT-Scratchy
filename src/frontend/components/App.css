@@ -75,7 +75,7 @@ a:link, a:visited, a:hover, a:active {
   cursor: default;
 }
 .popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .subNavbarMenuNotSelected:hover,
-.coinDiv:hover, .mintButton:hover, .wideButton:hover ,.wideButtonRed:hover {
+.coinDiv:hover, .mintButton:hover, .wideButton:hover ,.wideButtonRed:hover, .navbarLinkElement:hover {
   cursor: pointer;
 }
 

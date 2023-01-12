@@ -11,6 +11,12 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
         var ex = document.getElementById(elementId);
         ex.click();
     }
+
+    const scratchLink = async() => {
+        // if (!account)
+        //     await web3Handler()
+        buttonLinkOnClick("scratch")
+    }
     
     return (
         <Row className="navigationRow">
@@ -37,22 +43,22 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
                 <Col className="navigation m-0 p-0 col-11">
                     <Row className="navigationLinksRow">
                         <Col className="navigationLinksColLeft col-6">
-                            <div className="m-0 p-0">
-                                <a href="/mint" className="navbarElement">
-                                    {menu == 1 ? (
-                                        <span className='selectedMenu'>Mint</span>
-                                    ) : (
-                                        <>Mint</>
-                                    )}
+                            <div className="m-0 p-0 navbarLinkElement" onClick={() => buttonLinkOnClick('mint')}>
+                                {menu == 1 ? (
+                                    <span className='selectedMenu'>Mint</span>
+                                ) : (
+                                    <>Mint</>
+                                )}
+                                <a href="/mint" className="navbarElement" id="mint">
                                 </a>
                             </div>
-                            <div className="m-0 p-0">
-                                <a href="/scratch" id="collectionLink" className="navbarElement">
-                                    {menu == 2 ? (
-                                        <span className='selectedMenu'>Scratch</span>
-                                    ) : (
-                                        <>Scratch</>
-                                    )}
+                            <div className="m-0 p-0 navbarLinkElement" onClick={() => scratchLink()}>
+                                {menu == 2 ? (
+                                    <span className='selectedMenu'>Scratch</span>
+                                ) : (
+                                    <>Scratch</>
+                                )}
+                                <a href="/scratch" className="navbarElement" id="scratch">
                                 </a>
                             </div>
                         </Col>

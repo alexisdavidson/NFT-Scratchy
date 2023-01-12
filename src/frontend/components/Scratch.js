@@ -6,9 +6,14 @@ import coinLogo from './assets/Coin.png'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const Scratch = ({ togglePopup }) => {
+const Scratch = ({ togglePopup, web3Handler }) => {
     const [submenu, setSubmenu] = useState(1)
+    const [loading, setLoading] = useState(true)
 
+    useEffect(async () => {
+        await web3Handler()
+        setLoading(false)
+      }, [])
     return (
         <Row className="m-0 p-0 mt-5">
             <div className="m-0 p-0 subNavbarRow">
@@ -24,11 +29,24 @@ const Scratch = ({ togglePopup }) => {
                 </div>
             </div>
 
-            <div className="scratchCardContainer">
-                <div className="scratchyCard scratchyCardEmpty">
-                    <div>You don't have any<br/>Scratchy Card</div>
-                </div>
-            </div>
+            {loading ? (
+                <>
+                    <div className="scratchCardContainer">
+                        <div className="scratchyCard scratchyCardEmpty">
+                            <div>Loading...</div>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="scratchCardContainer">
+                        <div className="scratchyCard scratchyCardEmpty">
+                            <div>You don't have any<br/>Scratchy Card</div>
+                        </div>
+                    </div>
+                </>
+            )}
+
 
         </Row>
     );
