@@ -11,6 +11,12 @@ const MintDiv = ({ account, web3Handler, nft, balance}) => {
     const [quantity, setQuantity] = useState(1)
     const [justMinted, setJustMinted] = useState(false)
 
+    const buttonLinkOnClick = async (elementId) => {
+        console.log("buttonLinkOnClick: " + elementId)
+        var ex = document.getElementById(elementId);
+        ex.click();
+    }
+
     const changeQuantity = (direction) => {
         if (quantity + direction < 1)
             setQuantity(1)
@@ -44,10 +50,12 @@ const MintDiv = ({ account, web3Handler, nft, balance}) => {
 
     const scratchIt = () => {
         console.log("scratchIt")
+        buttonLinkOnClick("scratch")
     }
 
     const sellOpensea = () => {
         console.log("sellOpensea")
+        buttonLinkOnClick("opensea")
     }
 
     return (
@@ -86,8 +94,11 @@ const MintDiv = ({ account, web3Handler, nft, balance}) => {
                             CONGRATULATIONS! YOU'VE MINTED A GENESIS SCRATCH CARD. WHAT'S NEXT?
                         </div>
                         <div className="displayMobileBlock">MINTED! WHAT'S NEXT?</div>
-                        <div className="wideButton" onClick={scratchIt}>SCRATCH IT</div>
+                        <div className="wideButton" onClick={scratchIt}>
+                            SCRATCH IT
+                        </div>
                         <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
+                        <a href="https://testnets.opensea.io/collection/genesis-scratchy-card" target="_blank" id="opensea"></a>
                         {account ? (
                             <div className="m-auto p-0">
                                 {account.slice(0, 9) + '...' + account.slice(34, 42)}
