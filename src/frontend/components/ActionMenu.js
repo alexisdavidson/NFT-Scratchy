@@ -8,12 +8,12 @@ const Menu = ({togglePopup}) => {
         <Row className="popupBig">
             <Row className="m-0 p-0">
                 <Row className="m-0 p-0">
-                    <a href="/mint" >MINT</a>
+                    <a href="/mint">MINT</a>
                 </Row>
-                <Row className="m-0 p-0">
-                    <a href="/scratch" >SCRATCH</a>
+                <Row className="m-0 p-0 mb-5">
+                    <a href="/scratch">SCRATCH</a>
                 </Row>
-                <Row className="m-0 p-0">
+                <Row className="m-0 p-0 mt-5">
                     <div className="mobileMenuButton" onClick={() => togglePopup(1)}>DISCORD?</div>
                 </Row>
                 <Row className="m-0 p-0">
