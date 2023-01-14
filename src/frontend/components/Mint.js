@@ -69,7 +69,7 @@ const Mint = ({ account, nft, web3Handler, balance }) => {
                                 infoPrize="MYSTERIOUS" 
                                 mobileTitle="SEASON 2" />,
                             '3': <MintCard account={account} web3Handler={web3Handler} 
-                                cardClass="scratchyCardEmpty" cardText="?" mintActivated={false} nextPage={nextPage} subpage={subpage}
+                                cardClass="scratchyCardQuestion" cardText="?" mintActivated={false} nextPage={nextPage} subpage={subpage}
                                 infoPrice="FREE MINT" infoType="SEASON 3 SCRATCHY CARD" infoDate="21 FEBRUARY 2023" infoTime="12PM UTC"
                                 infoTotal="1,250 CARDS" infoNetwork="ETHEREUM"
                                 infoWhitelist="???"
@@ -77,7 +77,7 @@ const Mint = ({ account, nft, web3Handler, balance }) => {
                                 infoPrize="???" 
                                 mobileTitle="SEASON 3" />,
                             '4': <MintCard account={account} web3Handler={web3Handler} 
-                                cardClass="scratchyCardEmpty" cardText="?" mintActivated={false} nextPage={nextPage} subpage={subpage}
+                                cardClass="scratchyCardQuestion" cardText="?" mintActivated={false} nextPage={nextPage} subpage={subpage}
                                 infoPrice="FREE MINT" infoType="SEASON 4 ONWARDS" infoDate="???" infoTime="???"
                                 infoTotal="???" infoNetwork="ETHEREUM"
                                 infoWhitelist="AMOUNT OF MINT BASED ON THE ??? GENESIS SCRATCHY CARD???"

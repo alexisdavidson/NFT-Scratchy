@@ -242,6 +242,11 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("./assets/Card_Placement.svg");
 }
 
+.scratchyCardQuestion {
+  background-image: url("./assets/Card_Placement.svg");
+  font-size: 14rem;
+}
+
 .scratchyCardGenesis {
   background-image: url("./assets/Genesis/Before.png");
 }
@@ -419,6 +424,10 @@ a:link, a:visited, a:hover, a:active {
   .scratchyCard, .scratchyCardEmpty, .scratchyCardGenesis, .scratchyCard1, .scratchyCard2 {
     width: 90%;
     height: 32vh;
+  }
+
+  .scratchyCardQuestion {
+    font-size: 7rem;
   }
 
   .subNavbarMenu {
