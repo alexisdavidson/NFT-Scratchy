@@ -16,7 +16,7 @@ module.exports = {
       //  accounts: ['0x' + process.env.REACT_APP_PRIVATE_KEY_GOERLI_KENNY],
        allowUnlimitedContractSize: true,
        gas: 2100000,
-       gasPrice: 8000000000,
+       gasPrice: 20000000000,
      },
     //  mainnet: {
     //   url: process.env.REACT_APP_API_URL_MAINNET_INFURA,
