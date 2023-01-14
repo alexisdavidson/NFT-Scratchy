@@ -401,7 +401,7 @@ a:link, a:visited, a:hover, a:active {
   .mintDescriptionMintActivated {
     padding: 0;
     padding-left: 4vh;
-    padding-right: 4vh;
+    /* padding-right: 4vh; */
     margin-top: 0;
     grid-gap: 0rem;
     font-size: 1.3rem;
