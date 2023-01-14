@@ -7,7 +7,7 @@ import mintPlus from './assets/mintPlus.svg'
 const fromWei = (num) => ethers.utils.formatEther(num)
 const toWei = (num) => ethers.utils.parseEther(num.toString())
 
-const MintDiv = ({ account, web3Handler, nft, balance}) => {
+const MintDiv = ({ account, web3Handler, nft, balance, setMenu}) => {
     const [quantity, setQuantity] = useState(1)
     const [justMinted, setJustMinted] = useState(false)
 
@@ -50,7 +50,8 @@ const MintDiv = ({ account, web3Handler, nft, balance}) => {
 
     const scratchIt = () => {
         console.log("scratchIt")
-        buttonLinkOnClick("scratch")
+        // buttonLinkOnClick("scratch")
+        setMenu(2)
     }
 
     const sellOpensea = () => {

@@ -43,7 +43,7 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ipfs://QmPo14pi3grqsN7xeVNCpqbmGjrRaaYAhVZ6a5ABLT6mAY/";
+        return "ipfs://QmYLpp6TaXjHPENgbDWRWzBQoJuc4zRE5z3sXjXhdYALp3/";
     }
     
     function baseTokenURI() public pure returns (string memory) {

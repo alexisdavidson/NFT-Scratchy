@@ -9,7 +9,7 @@ const toWei = (num) => ethers.utils.parseEther(num.toString())
 const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
     cardClass, cardText, nextPage, subpage,
     infoPrice, infoType, infoDate, infoTime, infoTotal, infoNetwork, infoWhitelist, infoUtility, infoPrize, infoRoadmap,
-    mobileTitle }) => {
+    mobileTitle, setMenu}) => {
 
     const [displayCardInfo, setDisplayCardInfo] = useState(false)
 
@@ -25,7 +25,7 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
                 </Col>
                 <Col className="col-12 col-xl-4 m-0 p-0 displayDesktopBlock">
                     {mintActivated ? (
-                        <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} />
+                        <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} setMenu={setMenu}/>
                     ) : (
                         <div className="mintDescription">
                             PRICE: {infoPrice}
@@ -51,7 +51,7 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
             {/* MOBILE */}
             <Row className="m-0 p-0 displayMobile">
                 {mintActivated ? (
-                    <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} />
+                    <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} setMenu={setMenu} />
                 ) : (
                     <>
                     <div>

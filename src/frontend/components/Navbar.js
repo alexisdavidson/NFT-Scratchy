@@ -44,8 +44,6 @@ const Navbar = ({ menu, togglePopup, setMobileMenu, setMenu }) => {
                                 ) : (
                                     <>Mint</>
                                 )}
-                                <a href="/mint" className="navbarElement" id="mint">
-                                </a>
                             </div>
                             <div className="m-0 p-0 navbarLinkElement" onClick={() => setMenu(2)}>
                                 {menu == 2 ? (
@@ -53,8 +51,6 @@ const Navbar = ({ menu, togglePopup, setMobileMenu, setMenu }) => {
                                 ) : (
                                     <>Scratch</>
                                 )}
-                                <a href="/scratch" className="navbarElement" id="scratch">
-                                </a>
                             </div>
                         </Col>
                         <Col className="navigationLinksColRight col-6">

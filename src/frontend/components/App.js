@@ -203,7 +203,7 @@ function App() {
             {
               {
               '0': <Audio />,
-              '1': <Mint web3Handler={web3Handler} account={account} nft={nft} balance={balance} />,
+              '1': <Mint web3Handler={web3Handler} account={account} nft={nft} balance={balance} setMenu={setMenu} />,
               '2': <Scratch account={account} togglePopup={togglePopup} nft={nft} web3Handler={web3Handler} items={items}/>,
               }[menu]
             }
