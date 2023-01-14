@@ -17,13 +17,14 @@ const Scratch = ({ account, nft, togglePopup, web3Handler, items }) => {
     }
 
     const scratch = async () => {
-        console.log("scratch", items[currentItemIndex].token_id)
+        let currentItemIndexTemp = currentItemIndex
+        console.log("scratch", items[currentItemIndexTemp].token_id)
 
         try {
-            await(await nft.scratch(items[currentItemIndex].token_id)).wait()
+            await(await nft.scratch(items[currentItemIndexTemp].token_id)).wait()
 
             // Scratch GIF
-            items[currentItemIndex].isBeingScratched = true
+            items[currentItemIndexTemp].isBeingScratched = true
             forceRefresh(refresh + 1)
         } catch (error) {
             console.error("Custom error handling: " + error);

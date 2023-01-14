@@ -76,7 +76,7 @@ a:link, a:visited, a:hover, a:active {
 }
 .popupButton:hover, .popupButtonClose:hover, .audioDiv:hover, .subNavbarMenuNotSelected:hover,
 .coinDiv:hover, .mintButton:hover, .wideButton:hover ,.wideButtonRed:hover, .navbarLinkElement:hover,
-.scratchyCardScratchable:hover {
+.scratchyCardScratchable:hover, .logo:hover {
   cursor: pointer;
 }
 
@@ -334,7 +334,7 @@ a:link, a:visited, a:hover, a:active {
   text-align: left;
   font-size: 1.5rem;
   padding: 4vh;
-  padding-left: 0;
+  /* padding-left: 0; */
 }
 
 .mintDescriptionMintActivated {

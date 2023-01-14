@@ -31,6 +31,7 @@ function App() {
   const [price, setPrice] = useState(0.01)
   const [nft, setNFT] = useState({})
   const [mobileMenu, setMobileMenu] = useState(false)
+  const [menu, setMenu] = useState(0)
   const [popup, setPopup] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [amountMinted, setAmountMinted] = useState(0)
@@ -198,26 +199,14 @@ function App() {
     <BrowserRouter>
       <div className="App" id="wrapper">
         <div className="m-0 p-0 container-fluid">
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Navbar menu={0} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Audio />
-              </>
-            } />
-            <Route path="/mint" element={
-              <>
-                <Navbar menu={1} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Mint web3Handler={web3Handler} account={account} nft={nft} balance={balance} />
-              </>
-            } />
-            <Route path="/scratch" element={
-              <>
-                <Navbar menu={2} togglePopup={togglePopup} setMobileMenu={setMobileMenu} />
-                <Scratch account={account} togglePopup={togglePopup} nft={nft} web3Handler={web3Handler} items={items}/>
-              </>
-            } />
-          </Routes>
+            <Navbar menu={menu} togglePopup={togglePopup} setMobileMenu={setMobileMenu} setMenu={setMenu} />
+            {
+              {
+              '0': <Audio />,
+              '1': <Mint web3Handler={web3Handler} account={account} nft={nft} balance={balance} />,
+              '2': <Scratch account={account} togglePopup={togglePopup} nft={nft} web3Handler={web3Handler} items={items}/>,
+              }[menu]
+            }
           
             {
               {
@@ -231,7 +220,7 @@ function App() {
               <>
                 <div className="quitMenuDiv" onClick={clickQuitMenu}>
                 </div>
-                <Menu togglePopup={togglePopup} />
+                <Menu togglePopup={togglePopup} setMenu={setMenu} setMobileMenu={setMobileMenu} />
               </>
             ) : (
               <></>

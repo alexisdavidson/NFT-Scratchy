@@ -4,18 +4,12 @@ import { Image, Row, Col, Button } from 'react-bootstrap'
 import logo from './assets/Logo.png'
 import mobileMenu from './assets/mobile/Menu.svg'
 
-const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
+const Navbar = ({ menu, togglePopup, setMobileMenu, setMenu }) => {
     
     const buttonLinkOnClick = async (elementId) => {
         console.log("buttonLinkOnClick: " + elementId)
         var ex = document.getElementById(elementId);
         ex.click();
-    }
-
-    const scratchLink = async() => {
-        // if (!account)
-        //     await web3Handler()
-        buttonLinkOnClick("scratch")
     }
     
     return (
@@ -24,9 +18,8 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
             <div className="navbarMobileDiv displayMobile"> 
                 <Row className="menuMobileCol">
                     <Col className="col-6">
-                        <div className="homeMobileCol" onClick={() => buttonLinkOnClick('home')}>
+                        <div className="homeMobileCol" onClick={() => setMenu(0)}>
                             <Image src={logo} className="homeMobileImage" />
-                            <a href="/" id="home"></a>
                         </div>
                     </Col>
                     <Col className="col-6 menuMobileCol">
@@ -38,12 +31,14 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
             {/* DESKTOP */}
             <div className="displayDesktop">
                 <Col className="logoCol col-1">
-                    <a href="/" className="logo"><img src={logo} className="logoNavbarImg" /></a>
+                    <div className="logo" onClick={() => setMenu(0)}>
+                        <img src={logo} className="logoNavbarImg" />
+                    </div>
                 </Col>
                 <Col className="navigation m-0 p-0 col-11">
                     <Row className="navigationLinksRow">
                         <Col className="navigationLinksColLeft col-6">
-                            <div className="m-0 p-0 navbarLinkElement" onClick={() => buttonLinkOnClick('mint')}>
+                            <div className="m-0 p-0 navbarLinkElement" onClick={() => setMenu(1)}>
                                 {menu == 1 ? (
                                     <span className='selectedMenu'>Mint</span>
                                 ) : (
@@ -52,7 +47,7 @@ const Navbar = ({ menu, togglePopup, setMobileMenu }) => {
                                 <a href="/mint" className="navbarElement" id="mint">
                                 </a>
                             </div>
-                            <div className="m-0 p-0 navbarLinkElement" onClick={() => scratchLink()}>
+                            <div className="m-0 p-0 navbarLinkElement" onClick={() => setMenu(2)}>
                                 {menu == 2 ? (
                                     <span className='selectedMenu'>Scratch</span>
                                 ) : (
