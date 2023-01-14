@@ -64,6 +64,11 @@ function App() {
     setPopup(0)
   }
 
+  const clickQuitMenu = () => {
+    console.log("clickQuitMenu")
+    setMobileMenu(false)
+  }
+
   const togglePopup = (popupId) => {
     console.log("togglePopup", popupId)
 
@@ -223,7 +228,11 @@ function App() {
             }
 
             {mobileMenu ? (
-              <Menu togglePopup={togglePopup} />
+              <>
+                <div className="quitMenuDiv" onClick={clickQuitMenu}>
+                </div>
+                <Menu togglePopup={togglePopup} />
+              </>
             ) : (
               <></>
             )}
