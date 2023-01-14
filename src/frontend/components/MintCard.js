@@ -18,12 +18,12 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
             <Row className="m-0 p-0">
                 <Col className="col-0 col-xl-1 m-0 p-0">
                 </Col>
-                <Col className="col-12 col-xl-7 m-0 p-0">
+                <Col className="col-12 col-xl-6 m-0 p-0">
                     <div className={"scratchyCard " + cardClass} onClick={() => setDisplayCardInfo(true)} >
                         {cardText}
                     </div>
                 </Col>
-                <Col className="col-12 col-xl-3 m-0 p-0 displayDesktopBlock">
+                <Col className="col-12 col-xl-4 m-0 p-0 displayDesktopBlock">
                     {mintActivated ? (
                         <MintDiv account={account} nft={nft} web3Handler={web3Handler} balance={balance} />
                     ) : (

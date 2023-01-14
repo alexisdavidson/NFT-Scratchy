@@ -94,7 +94,14 @@ a:link, a:visited, a:hover, a:active {
   background-color: #f8d451;
   width: 15rem;
   font-size: 1.6rem;
+  line-height: 3.2rem;
   /* height: 3rem; */
+}
+
+.cardsPerWallet {
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
 }
 
 .wideButton, .wideButtonRed {
@@ -317,11 +324,17 @@ a:link, a:visited, a:hover, a:active {
   text-align: center;
   font-size: 1.5rem;
   padding: 0;
-  padding-left: 4vh;
-  padding-right: 4vh;
+  /* padding-right: 40vh; */
   margin-top: 8vh;
   grid-gap: 2rem;
   /* width: 100%; */
+}
+
+.flexAlignLeft {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-left: 4vh;
 }
 
 .quantitySelectorRow {
@@ -369,6 +382,9 @@ a:link, a:visited, a:hover, a:active {
     position: relative;
   }
   .mintDescriptionMintActivated {
+    padding: 0;
+    padding-left: 4vh;
+    padding-right: 4vh;
     margin-top: 0;
     grid-gap: 0rem;
     font-size: 1.3rem;
@@ -476,5 +492,9 @@ a:link, a:visited, a:hover, a:active {
   }
   .subNavbarRow {
     display: block;
+  }
+
+  .cardsPerWallet {
+    margin: 0;
   }
 }

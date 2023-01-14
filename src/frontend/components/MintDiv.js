@@ -62,51 +62,52 @@ const MintDiv = ({ account, web3Handler, nft, balance}) => {
         <Row className="mintDescriptionMintActivated">
             {!(justMinted || balance >= 2) ? (
                 <>
-                    <Row className="m-auto p-0">
-                        <div>10,000/10,000 CARDS LEFT</div>
-                        <div className="quantitySelectorRow">
-                            <div onClick={() => changeQuantity(-1)}><img src={mintMinus} className="minusPlusImage" /></div>
-                            <div>{quantity}</div>
-                            <div onClick={() => changeQuantity(1)}><img src={mintPlus} className="minusPlusImage" /></div>
-                        </div>
-                        {account ? (
-                            <div className="mintButton" onClick={mintButton}>MINT FOR FREE</div>
-                        ) : (
-                            <div className="mintButton" onClick={mintButton}>CONNECT</div>
-                        )}
-                        
-                    </Row>
-                    <Row className="m-auto p-0">
-                        <div>2 CARDS PER WALLET</div>
-                        {account ? (
-                            <div className="m-auto p-0">
-                                {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                    <div className="flexAlignLeft">
+                        <div className="p-0">
+                            <div className="m-0 p-0">10,000/10,000 CARDS LEFT</div>
+                            <div className="quantitySelectorRow m-0 p-0">
+                                <div onClick={() => changeQuantity(-1)}><img src={mintMinus} className="minusPlusImage" /></div>
+                                <div>{quantity}</div>
+                                <div onClick={() => changeQuantity(1)}><img src={mintPlus} className="minusPlusImage" /></div>
                             </div>
-                        ) : (
-                            <></>
-                        )}
-                    </Row>
+                            {account ? (
+                                <div className="mintButton" onClick={mintButton}>MINT FOR FREE</div>
+                            ) : (
+                                <div className="mintButton" onClick={mintButton}>CONNECT</div>
+                            )}
+                            <div className="cardsPerWallet">2 CARDS PER WALLET</div>
+                            {account ? (
+                                <div className="m-auto p-0">
+                                    {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </div>
+                    </div>
                 </>
             ) : (
                 <>
-                    <Row className="m-auto p-0">
-                        <div className="displayDesktopBlock" style={{textAlign: "left"}}>
-                            CONGRATULATIONS! YOU'VE MINTED A GENESIS SCRATCH CARD. WHAT'S NEXT?
-                        </div>
-                        <div className="displayMobileBlock">MINTED! WHAT'S NEXT?</div>
-                        <div className="wideButton" onClick={scratchIt}>
-                            SCRATCH IT
-                        </div>
-                        <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
-                        <a href="https://testnets.opensea.io/" target="_blank" id="opensea"></a>
-                        {account ? (
-                            <div className="m-auto p-0">
-                                {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                    <div className="flexAlignLeft">
+                        <div className="p-0">
+                            <div className="displayDesktopBlock" style={{textAlign: "left"}}>
+                                CONGRATULATIONS! YOU'VE MINTED A GENESIS SCRATCH CARD. WHAT'S NEXT?
                             </div>
-                        ) : (
-                            <></>
-                        )}
-                    </Row>
+                            <div className="displayMobileBlock">MINTED! WHAT'S NEXT?</div>
+                            <div className="wideButton" onClick={scratchIt}>
+                                SCRATCH IT
+                            </div>
+                            <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
+                            <a href="https://testnets.opensea.io/" target="_blank" id="opensea"></a>
+                            {account ? (
+                                <div className="m-auto p-0">
+                                    {account.slice(0, 9) + '...' + account.slice(34, 42)}
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </div>
+                    </div>
                 </>
             )}
         </Row>
