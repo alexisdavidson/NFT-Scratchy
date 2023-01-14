@@ -272,7 +272,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .scratchyCardGenesis {
-  background-image: url("./assets/Genesis/Before.png");
+  background-image: url("./assets/Genesis/Before_Desktop.png");
 }
 
 .scratchyCardGenesisDuring {
@@ -466,6 +466,10 @@ a:link, a:visited, a:hover, a:active {
   .scratchyCard, .scratchyCardEmpty, .scratchyCardGenesis, .scratchyCard1, .scratchyCard2 {
     width: 90%;
     height: 32vh;
+  }
+
+  .scratchyCardGenesis {
+    background-image: url("./assets/Genesis/Before_Mobile.png");
   }
 
   .scratchyCardQuestion {
