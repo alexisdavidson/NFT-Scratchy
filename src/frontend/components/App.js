@@ -96,6 +96,7 @@ function App() {
     let itemsOpenSea = await fetch(`${configContract.OPENSEA_API_TESTNETS}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
     .then((res) => res.json())
     .then((res) => {
+      console.log("OS length:", res?.assets?.length)
       return res.assets
     })
     .catch((e) => {
@@ -114,12 +115,21 @@ function App() {
     }
 
     for(let i = 0; i < itemsOpenSea?.length; i ++) {
-      items.push({
-        name: itemsOpenSea[i].name,
-        token_id: itemsOpenSea[i].token_id,
-        isScratched: false
-      })
+      let alreadyInList = false
+      for(let j = 0; j < itemsScratched.length; j ++) {
+        if (parseInt(itemsOpenSea[i].token_id) == parseInt(itemsScratched[j]))
+          alreadyInList = true
+      }
+
+      if (!alreadyInList) {
+        items.push({
+          name: itemsOpenSea[i].name,
+          token_id: itemsOpenSea[i].token_id,
+          isScratched: false
+        })
+      }
     }
+    
 
     function compare( a, b ) {
       if ( a.token_id < b.token_id ){
