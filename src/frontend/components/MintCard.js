@@ -63,7 +63,7 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
                                 <div className={"arrowDiv leftArrowMobile"} onClick={() => nextPage(-1)}></div>
                             ) : ( <></> )}
                         </div>
-                        <div className="subNavbarMenu" onClick={() => setDisplayCardInfo(true)} >
+                        <div className="mobileCardInfoButton" onClick={() => setDisplayCardInfo(true)} >
                             {mobileTitle}
                         </div>
                         <div className="arrowDiv">

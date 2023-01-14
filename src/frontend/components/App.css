@@ -198,7 +198,7 @@ a:link, a:visited, a:hover, a:active {
   justify-content: center;
   gap: 10vh;
 }
-.subNavbarMenu, .subCoinMenu {
+.subNavbarMenu, .subCoinMenu, .mobileCardInfoButton {
   background-color: #f8d451;
   border: 4px solid #653f2c;
   /* margin: auto; */
@@ -210,6 +210,16 @@ a:link, a:visited, a:hover, a:active {
   vertical-align: middle;
   font-size: 2rem;
   text-transform: uppercase;
+}
+
+.mobileCardInfoButton {
+  height: auto;
+  margin: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding: 1vh;
+  font-size: 1.5rem;
+  width: 30vh;
 }
 
 .selectedSubmenu, .subCoinMenu {
@@ -461,12 +471,13 @@ a:link, a:visited, a:hover, a:active {
     margin-top: 2vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1;
   }
 
   .arrowDiv {
-    width: 4vh;
-    height: 4vh;
+    width: 8vh;
+    height: 8vh;
     /* margin-left: 1vh;
     margin-right: 1vh; */
   }
@@ -495,6 +506,11 @@ a:link, a:visited, a:hover, a:active {
   }
 
   .cardsPerWallet {
+    margin: 0;
+  }
+
+  .flexAlignLeft {
+    display: block;
     margin: 0;
   }
 }
