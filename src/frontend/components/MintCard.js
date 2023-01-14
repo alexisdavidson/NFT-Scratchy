@@ -77,7 +77,7 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
 
                 {displayCardInfo ? (
                     <Row className="popupBigSmallText">
-                        <div>
+                        <div className="p-0">
                             PRICE: {infoPrice}
                             {infoType ? ( <><br/>TYPE: {infoType}</> ) : ( <></> )}
                             <br/>DATE: {infoDate}
@@ -90,7 +90,7 @@ const MintCard = ({ account, mintActivated, nft, web3Handler, balance,
                             {infoRoadmap ? ( <><br/>ROADMAP: {infoRoadmap}</> ) : ( <></> )}
                         </div>
 
-                        <div className="popupButtonClose mt-3" onClick={() => setDisplayCardInfo(false)} >
+                        <div className="popupButtonClose" onClick={() => setDisplayCardInfo(false)} >
                             Close
                         </div>
                     </Row>
