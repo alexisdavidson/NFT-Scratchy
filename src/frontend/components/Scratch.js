@@ -82,7 +82,7 @@ const Scratch = ({ account, nft, togglePopup, web3Handler, items }) => {
                                         <div className="scratchyCard scratchyCardGenesisDuring">
                                         </div>
                                     ) : (
-                                        <div className="scratchyCard scratchyCardGenesis scratchyCardScratchable" onClick={scratch}>
+                                        <div className="scratchyCard scratchyCardGenesisBefore scratchyCardScratchable" onClick={scratch}>
                                         </div>
                                     )
                                 )}
