@@ -20,10 +20,10 @@ module.exports = {
      },
     //  mainnet: {
     //   url: process.env.REACT_APP_API_URL_MAINNET_INFURA,
-    //   accounts: ['0x' + process.env.REACT_APP_PRIVATE_KEY_GOERLI_KENNY],
+    //   accounts: ['0x' + process.env.REACT_APP_PRIVATE_KEY_KENNY_6],
     //   // accounts: [process.env.REACT_APP_PRIVATE_KEY_MAINNET_KENNY_2],
     //   gas: 2100000,
-    //   gasPrice: 30000000000
+    //   gasPrice: 25000000000
     // }
   },
   paths: {

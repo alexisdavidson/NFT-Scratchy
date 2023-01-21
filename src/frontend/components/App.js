@@ -99,7 +99,7 @@ function App() {
   }
 
   const loadOpenSeaItems = async (acc, nft) => {
-    let itemsOpenSea = await fetch(`${configContract.OPENSEA_API_TESTNETS}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
+    let itemsOpenSea = await fetch(`${configContract.OPENSEA_API}/assets?owner=${acc}&asset_contract_address=${nft.address}&format=json`)
     .then((res) => res.json())
     .then((res) => {
       console.log("OS length:", res?.assets?.length)

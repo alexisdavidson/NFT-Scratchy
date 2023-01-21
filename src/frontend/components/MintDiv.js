@@ -99,7 +99,7 @@ const MintDiv = ({ account, web3Handler, nft, balance, setMenu}) => {
                                 SCRATCH IT
                             </div>
                             <div className="wideButtonRed" onClick={sellOpensea}>SELL IT ON OPENSEA</div>
-                            <a href="https://testnets.opensea.io/" target="_blank" id="opensea"></a>
+                            <a href="https://opensea.io/collection/genesis-scratchy-card" target="_blank" id="opensea"></a>
                             {account ? (
                                 <div className="m-auto p-0">
                                     {account.slice(0, 9) + '...' + account.slice(34, 42)}
