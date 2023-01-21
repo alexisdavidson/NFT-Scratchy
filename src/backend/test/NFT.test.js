@@ -7,6 +7,7 @@ const fromWei = (num) => parseInt(ethers.utils.formatEther(num))
 describe("NFT", async function() {
     let deployer, addr1, addr2, nft
     let price = 0
+    let initialTeamBalance = 750
 
     beforeEach(async function() {
         // Get contract factories
@@ -29,6 +30,7 @@ describe("NFT", async function() {
 
     describe("Mint", function() {
         it("Should mint NFTs correctly", async function() {
+            expect(await nft.balanceOf(deployer.address)).to.equal(initialTeamBalance);
             await expect(nft.connect(addr1).mint(1, { value: toWei(price)})).to.be.revertedWith('Minting is not enabled');
             await nft.connect(deployer).setMintEnabled(true);
 
@@ -38,7 +40,7 @@ describe("NFT", async function() {
 
             await nft.connect(addr1).mint(1, { value: toWei(price)});
             expect(await nft.balanceOf(addr1.address)).to.equal(1);
-            expect(await nft.totalSupply()).to.equal(1);
+            expect(await nft.totalSupply()).to.equal(initialTeamBalance + 1);
 
         })
         it("Should burn and track NFTs", async function() {
@@ -46,19 +48,19 @@ describe("NFT", async function() {
             await nft.connect(addr1).mint(2, { value: toWei(price)});
             expect(await nft.balanceOf(addr1.address)).to.equal(2);
             
-            await expect(nft.connect(addr2).scratch(1)).to.be.revertedWith("You don't have the right to scratch this NFT");
-            await expect(nft.connect(addr1).scratch(3)).to.be.revertedWith("OwnerQueryForNonexistentToken()");
+            await expect(nft.connect(addr2).scratch(initialTeamBalance + 1)).to.be.revertedWith("You don't have the right to scratch this NFT");
+            await expect(nft.connect(addr1).scratch(initialTeamBalance + 3)).to.be.revertedWith("OwnerQueryForNonexistentToken()");
 
-            await nft.connect(addr1).scratch(1);
+            await nft.connect(addr1).scratch(initialTeamBalance + 1);
             expect(await nft.balanceOf(addr1.address)).to.equal(1);
             console.log("getScratched", await nft.getScratched(addr1.address))
-            expect((await nft.getScratched(addr1.address))[0]).to.equal(1);
+            expect((await nft.getScratched(addr1.address))[0]).to.equal(initialTeamBalance + 1);
             
-            await nft.connect(addr1).scratch(2);
+            await nft.connect(addr1).scratch(initialTeamBalance + 2);
             expect(await nft.balanceOf(addr1.address)).to.equal(0);
             console.log("getScratched", await nft.getScratched(addr1.address))
-            expect((await nft.getScratched(addr1.address))[0]).to.equal(1);
-            expect((await nft.getScratched(addr1.address))[1]).to.equal(2);
+            expect((await nft.getScratched(addr1.address))[0]).to.equal(initialTeamBalance + 1);
+            expect((await nft.getScratched(addr1.address))[1]).to.equal(initialTeamBalance + 2);
 
         })
         it("Should perform owner functions", async function() {

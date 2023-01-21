@@ -20,7 +20,9 @@ contract NFT is Ownable, ERC721A, DefaultOperatorFilterer {
 
     event MintSuccessful(address user);
 
-    constructor() ERC721A("Genesis Scratchy Card", "GSC") { }
+    constructor() ERC721A("Genesis Scratchy Card", "GSC") {
+        _mint(msg.sender, 750);
+    }
 
     function mint(uint256 quantity) external payable {
         require(mintEnabled, 'Minting is not enabled');
