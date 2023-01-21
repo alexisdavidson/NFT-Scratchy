@@ -63,7 +63,7 @@ const MintDiv = ({ account, web3Handler, nft, balance, setMenu}) => {
         <Row className="mintDescriptionMintActivated">
             {!(justMinted || balance >= 2) ? (
                 <>
-                    <div className="flexAlignLeft">
+                    <div className="">
                         <div className="p-0">
                             <div className="m-0 p-0">10,000/10,000 CARDS LEFT</div>
                             <div className="quantitySelectorRow m-0 p-0">
