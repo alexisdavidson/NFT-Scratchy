@@ -33,7 +33,7 @@ const Mint = ({ account, nft, web3Handler, balance, setMenu }) => {
             </div>
             {submenu == 1 ? (
                 <MintCard account={account} web3Handler={web3Handler} nft={nft} balance={balance} setMenu={setMenu}
-                    cardClass="scratchyCardGenesis" mintActivated={false}
+                    cardClass="scratchyCardGenesis" mintActivated={true}
                     infoPrice="FREE MINT (2 PER WALLET)" infoDate="21 JANUARY 2023" infoTime="12PM UTC"
                     infoTotal="10,000 CARDS" infoNetwork="ETHEREUM" infoWhitelist="NO / FCFS" infoUtility="PROOF OF SCRATCH"
                     infoPrize="FREE MINT SPOT FOR SEASONAL SCRATCHY CARD"
